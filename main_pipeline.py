@@ -18,7 +18,7 @@ openai.api_key = os.environ['OPENAI_API_KEY']
 def ask_question(question):
     messages = [{"role": "user", "content": question}]
     response = openai.ChatCompletion.create(
-        model="gpt-4-0125-preview",
+        model="gpt-4o-mini",
         messages=messages,
         temperature=0,
         max_tokens=3000,
@@ -397,7 +397,8 @@ def pipeline(schema, model_instance, num_initial_questions):
     follow_up_question = (
         f"Suppose this is the current database schema:\n"
         f"{one_iter_response}\n\n"
-        "Generate 20 natural language questions that would help infer other (unknown) elements of the schema. List them in an ordered list."
+        "Based on this schema, generate 20 distinct and comprehensive natural language questions that would help uncover other potential unknown elements of the schema, such as additional tables, columns, data types, relationships between tables, or constraints. "
+        "Ensure that the questions vary in focus (e.g., targeting potential missing tables, columns, column types, or relationships) and cover different aspects of the schema's structure. Provide these questions in a well-organized, ordered list."
     )
     follow_up_response = ask_question(follow_up_question)
 
@@ -413,7 +414,7 @@ def pipeline(schema, model_instance, num_initial_questions):
         a_answer.append(an)
 
     combined_queries_list = answers + a_answer
-    max_queries = 1000
+    max_queries = 600
     # Limit the number of queries if necessary
     combined_queries = '\n'.join(combined_queries_list[:max_queries])
 
