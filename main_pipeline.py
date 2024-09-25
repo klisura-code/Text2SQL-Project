@@ -359,7 +359,7 @@ model_classes = {
     't5large': T5LargeModel,
 }
 
-def pipeline(schema, model_instance, num_initial_questions):
+def run_pipeline(schema, model_instance, num_initial_questions):
     # Define the text_to_sql function using the model instance
     def text_to_sql(question, schema):
         return model_instance.generate_sql(question, schema)
