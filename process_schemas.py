@@ -3,7 +3,7 @@ import sys
 import argparse
 import pandas as pd
 
-from main_pipeline import pipeline, model_classes  
+from main_pipeline import run_pipeline, model_classes  
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Process database schemas and generate outputs.')
@@ -48,7 +48,7 @@ def main():
                     continue
 
             try:
-                baseline, one_iter_response, two_iter_response = pipeline(schema_input, model_instance, num_initial_questions)
+                baseline, one_iter_response, two_iter_response = run_pipeline(schema_input, model_instance, num_initial_questions)
             except Exception as e:
                 print(f"An error occurred while processing db_id: {db_id}. Error: {e}")
                 continue  
