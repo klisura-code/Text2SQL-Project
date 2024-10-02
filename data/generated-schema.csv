@@ -1,0 +1,2234 @@
+db_id,schema_input1,schema_input2
+ecommerce_01,"products : Product_ID (INT), Name (TEXT), Description (TEXT), Price (DECIMAL), Stock (INT) | categories : Category_ID (INT), Category_Name (TEXT) | customers : Customer_ID (INT), Name (TEXT), Email (TEXT), Address (TEXT) | orders : Order_ID (INT), Customer_ID (INT), Order_Date (DATE), Total_Amount (DECIMAL)","CREATE TABLE products (
+    Product_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Price DECIMAL,
+    Stock INT
+); CREATE TABLE categories (
+    Category_ID INT,
+    Category_Name TEXT
+); CREATE TABLE customers (
+    Customer_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Address TEXT
+); CREATE TABLE orders (
+    Order_ID INT,
+    Customer_ID INT,
+    Order_Date DATE,
+    Total_Amount DECIMAL
+);"
+ecommerce_02,"vendors : Vendor_ID (INT), Name (TEXT), Contact_Email (TEXT), Phone (TEXT) | shipments : Shipment_ID (INT), Vendor_ID (INT), Shipment_Date (DATE), Status (TEXT) | inventory : Inventory_ID (INT), Product_ID (INT), Warehouse_Location (TEXT), Quantity (INT) | reviews : Review_ID (INT), Product_ID (INT), Customer_ID (INT), Rating (INT), Comment (TEXT)","CREATE TABLE vendors (
+    Vendor_ID INT,
+    Name TEXT,
+    Contact_Email TEXT,
+    Phone TEXT
+); CREATE TABLE shipments (
+    Shipment_ID INT,
+    Vendor_ID INT,
+    Shipment_Date DATE,
+    Status TEXT
+); CREATE TABLE inventory (
+    Inventory_ID INT,
+    Product_ID INT,
+    Warehouse_Location TEXT,
+    Quantity INT
+); CREATE TABLE reviews (
+    Review_ID INT,
+    Product_ID INT,
+    Customer_ID INT,
+    Rating INT,
+    Comment TEXT
+);"
+healthcare_01,"patients : Patient_ID (INT), Name (TEXT), Date_of_Birth (DATE), Gender (TEXT) | doctors : Doctor_ID (INT), Name (TEXT), Specialty (TEXT) | appointments : Appointment_ID (INT), Patient_ID (INT), Doctor_ID (INT), Appointment_Date (DATETIME) | prescriptions : Prescription_ID (INT), Patient_ID (INT), Medicine (TEXT), Dosage (TEXT)","CREATE TABLE patients (
+    Patient_ID INT,
+    Name TEXT,
+    Date_of_Birth DATE,
+    Gender TEXT
+); CREATE TABLE doctors (
+    Doctor_ID INT,
+    Name TEXT,
+    Specialty TEXT
+); CREATE TABLE appointments (
+    Appointment_ID INT,
+    Patient_ID INT,
+    Doctor_ID INT,
+    Appointment_Date DATETIME
+); CREATE TABLE prescriptions (
+    Prescription_ID INT,
+    Patient_ID INT,
+    Medicine TEXT,
+    Dosage TEXT
+);"
+healthcare_02,"hospitals : Hospital_ID (INT), Name (TEXT), Location (TEXT), Capacity (INT) | departments : Department_ID (INT), Hospital_ID (INT), Department_Name (TEXT) | staff : Staff_ID (INT), Department_ID (INT), Name (TEXT), Role (TEXT) | medical_records : Record_ID (INT), Patient_ID (INT), Diagnosis (TEXT), Treatment (TEXT)","CREATE TABLE hospitals (
+    Hospital_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Capacity INT
+); CREATE TABLE departments (
+    Department_ID INT,
+    Hospital_ID INT,
+    Department_Name TEXT
+); CREATE TABLE staff (
+    Staff_ID INT,
+    Department_ID INT,
+    Name TEXT,
+    Role TEXT
+); CREATE TABLE medical_records (
+    Record_ID INT,
+    Patient_ID INT,
+    Diagnosis TEXT,
+    Treatment TEXT
+);"
+education_01,"students : Student_ID (INT), Name (TEXT), Enrollment_Date (DATE), Major (TEXT) | courses : Course_ID (INT), Course_Name (TEXT), Credits (INT) | enrollments : Enrollment_ID (INT), Student_ID (INT), Course_ID (INT), Grade (TEXT) | instructors : Instructor_ID (INT), Name (TEXT), Department (TEXT)","CREATE TABLE students (
+    Student_ID INT,
+    Name TEXT,
+    Enrollment_Date DATE,
+    Major TEXT
+); CREATE TABLE courses (
+    Course_ID INT,
+    Course_Name TEXT,
+    Credits INT
+); CREATE TABLE enrollments (
+    Enrollment_ID INT,
+    Student_ID INT,
+    Course_ID INT,
+    Grade TEXT
+); CREATE TABLE instructors (
+    Instructor_ID INT,
+    Name TEXT,
+    Department TEXT
+);"
+education_02,"schools : School_ID (INT), Name (TEXT), Address (TEXT), Type (TEXT) | classes : Class_ID (INT), School_ID (INT), Class_Name (TEXT), Schedule (TEXT) | students : Student_ID (INT), Name (TEXT), Age (INT), Class_ID (INT) | teachers : Teacher_ID (INT), Name (TEXT), Subject (TEXT), Class_ID (INT)","CREATE TABLE schools (
+    School_ID INT,
+    Name TEXT,
+    Address TEXT,
+    Type TEXT
+); CREATE TABLE classes (
+    Class_ID INT,
+    School_ID INT,
+    Class_Name TEXT,
+    Schedule TEXT
+); CREATE TABLE students (
+    Student_ID INT,
+    Name TEXT,
+    Age INT,
+    Class_ID INT
+); CREATE TABLE teachers (
+    Teacher_ID INT,
+    Name TEXT,
+    Subject TEXT,
+    Class_ID INT
+);"
+finance_01,"accounts : Account_ID (INT), Customer_ID (INT), Balance (DECIMAL), Account_Type (TEXT) | transactions : Transaction_ID (INT), Account_ID (INT), Date (DATE), Amount (DECIMAL), Type (TEXT) | customers : Customer_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT) | loans : Loan_ID (INT), Customer_ID (INT), Amount (DECIMAL), Interest_Rate (DECIMAL), Term (INT)","CREATE TABLE accounts (
+    Account_ID INT,
+    Customer_ID INT,
+    Balance DECIMAL,
+    Account_Type TEXT
+); CREATE TABLE transactions (
+    Transaction_ID INT,
+    Account_ID INT,
+    Date DATE,
+    Amount DECIMAL,
+    Type TEXT
+); CREATE TABLE customers (
+    Customer_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+); CREATE TABLE loans (
+    Loan_ID INT,
+    Customer_ID INT,
+    Amount DECIMAL,
+    Interest_Rate DECIMAL,
+    Term INT
+);"
+finance_02,"branches : Branch_ID (INT), Location (TEXT), Manager_ID (INT) | employees : Employee_ID (INT), Branch_ID (INT), Name (TEXT), Position (TEXT) | salaries : Salary_ID (INT), Employee_ID (INT), Amount (DECIMAL), Payment_Date (DATE) | investments : Investment_ID (INT), Customer_ID (INT), Type (TEXT), Amount (DECIMAL), Start_Date (DATE)","CREATE TABLE branches (
+    Branch_ID INT,
+    Location TEXT,
+    Manager_ID INT
+); CREATE TABLE employees (
+    Employee_ID INT,
+    Branch_ID INT,
+    Name TEXT,
+    Position TEXT
+); CREATE TABLE salaries (
+    Salary_ID INT,
+    Employee_ID INT,
+    Amount DECIMAL,
+    Payment_Date DATE
+); CREATE TABLE investments (
+    Investment_ID INT,
+    Customer_ID INT,
+    Type TEXT,
+    Amount DECIMAL,
+    Start_Date DATE
+);"
+travel_01,"flights : Flight_ID (INT), Airline (TEXT), Departure (TEXT), Arrival (TEXT), Price (DECIMAL) | hotels : Hotel_ID (INT), Name (TEXT), Location (TEXT), Price_per_Night (DECIMAL) | bookings : Booking_ID (INT), Customer_ID (INT), Flight_ID (INT), Hotel_ID (INT), Booking_Date (DATE) | customers : Customer_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT)","CREATE TABLE flights (
+    Flight_ID INT,
+    Airline TEXT,
+    Departure TEXT,
+    Arrival TEXT,
+    Price DECIMAL
+); CREATE TABLE hotels (
+    Hotel_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Price_per_Night DECIMAL
+); CREATE TABLE bookings (
+    Booking_ID INT,
+    Customer_ID INT,
+    Flight_ID INT,
+    Hotel_ID INT,
+    Booking_Date DATE
+); CREATE TABLE customers (
+    Customer_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+);"
+travel_02,"tours : Tour_ID (INT), Name (TEXT), Destination (TEXT), Price (DECIMAL) | guides : Guide_ID (INT), Name (TEXT), Language (TEXT) | reservations : Reservation_ID (INT), Tour_ID (INT), Customer_ID (INT), Reservation_Date (DATE) | feedback : Feedback_ID (INT), Reservation_ID (INT), Rating (INT), Comments (TEXT)","CREATE TABLE tours (
+    Tour_ID INT,
+    Name TEXT,
+    Destination TEXT,
+    Price DECIMAL
+); CREATE TABLE guides (
+    Guide_ID INT,
+    Name TEXT,
+    Language TEXT
+); CREATE TABLE reservations (
+    Reservation_ID INT,
+    Tour_ID INT,
+    Customer_ID INT,
+    Reservation_Date DATE
+); CREATE TABLE feedback (
+    Feedback_ID INT,
+    Reservation_ID INT,
+    Rating INT,
+    Comments TEXT
+);"
+real_estate_01,"properties : Property_ID (INT), Address (TEXT), Price (DECIMAL), Type (TEXT), Status (TEXT) | agents : Agent_ID (INT), Name (TEXT), Phone (TEXT), Email (TEXT) | listings : Listing_ID (INT), Property_ID (INT), Agent_ID (INT), Listing_Date (DATE) | clients : Client_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT)","CREATE TABLE properties (
+    Property_ID INT,
+    Address TEXT,
+    Price DECIMAL,
+    Type TEXT,
+    Status TEXT
+); CREATE TABLE agents (
+    Agent_ID INT,
+    Name TEXT,
+    Phone TEXT,
+    Email TEXT
+); CREATE TABLE listings (
+    Listing_ID INT,
+    Property_ID INT,
+    Agent_ID INT,
+    Listing_Date DATE
+); CREATE TABLE clients (
+    Client_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+);"
+real_estate_02,"developers : Developer_ID (INT), Name (TEXT), Contact_Info (TEXT) | projects : Project_ID (INT), Developer_ID (INT), Name (TEXT), Location (TEXT), Budget (DECIMAL) | units : Unit_ID (INT), Project_ID (INT), Unit_Number (TEXT), Size (DECIMAL), Price (DECIMAL) | sales : Sale_ID (INT), Unit_ID (INT), Buyer_ID (INT), Sale_Date (DATE), Sale_Price (DECIMAL)","CREATE TABLE developers (
+    Developer_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+); CREATE TABLE projects (
+    Project_ID INT,
+    Developer_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Budget DECIMAL
+); CREATE TABLE units (
+    Unit_ID INT,
+    Project_ID INT,
+    Unit_Number TEXT,
+    Size DECIMAL,
+    Price DECIMAL
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Unit_ID INT,
+    Buyer_ID INT,
+    Sale_Date DATE,
+    Sale_Price DECIMAL
+);"
+manufacturing_01,"products : Product_ID (INT), Name (TEXT), Category (TEXT), Price (DECIMAL), Stock (INT) | suppliers : Supplier_ID (INT), Name (TEXT), Contact (TEXT) | orders : Order_ID (INT), Product_ID (INT), Supplier_ID (INT), Order_Date (DATE), Quantity (INT) | inventory : Inventory_ID (INT), Product_ID (INT), Warehouse_Location (TEXT), Quantity (INT)","CREATE TABLE products (
+    Product_ID INT,
+    Name TEXT,
+    Category TEXT,
+    Price DECIMAL,
+    Stock INT
+); CREATE TABLE suppliers (
+    Supplier_ID INT,
+    Name TEXT,
+    Contact TEXT
+); CREATE TABLE orders (
+    Order_ID INT,
+    Product_ID INT,
+    Supplier_ID INT,
+    Order_Date DATE,
+    Quantity INT
+); CREATE TABLE inventory (
+    Inventory_ID INT,
+    Product_ID INT,
+    Warehouse_Location TEXT,
+    Quantity INT
+);"
+manufacturing_02,"machines : Machine_ID (INT), Name (TEXT), Type (TEXT), Status (TEXT) | maintenance_logs : Log_ID (INT), Machine_ID (INT), Maintenance_Date (DATE), Details (TEXT) | employees : Employee_ID (INT), Name (TEXT), Role (TEXT), Machine_ID (INT) | production_batches : Batch_ID (INT), Product_ID (INT), Quantity (INT), Production_Date (DATE)","CREATE TABLE machines (
+    Machine_ID INT,
+    Name TEXT,
+    Type TEXT,
+    Status TEXT
+); CREATE TABLE maintenance_logs (
+    Log_ID INT,
+    Machine_ID INT,
+    Maintenance_Date DATE,
+    Details TEXT
+); CREATE TABLE employees (
+    Employee_ID INT,
+    Name TEXT,
+    Role TEXT,
+    Machine_ID INT
+); CREATE TABLE production_batches (
+    Batch_ID INT,
+    Product_ID INT,
+    Quantity INT,
+    Production_Date DATE
+);"
+media_01,"articles : Article_ID (INT), Title (TEXT), Content (TEXT), Publish_Date (DATE), Author_ID (INT) | authors : Author_ID (INT), Name (TEXT), Email (TEXT) | comments : Comment_ID (INT), Article_ID (INT), User_ID (INT), Comment_Text (TEXT), Comment_Date (DATETIME) | users : User_ID (INT), Username (TEXT), Email (TEXT)","CREATE TABLE articles (
+    Article_ID INT,
+    Title TEXT,
+    Content TEXT,
+    Publish_Date DATE,
+    Author_ID INT
+); CREATE TABLE authors (
+    Author_ID INT,
+    Name TEXT,
+    Email TEXT
+); CREATE TABLE comments (
+    Comment_ID INT,
+    Article_ID INT,
+    User_ID INT,
+    Comment_Text TEXT,
+    Comment_Date DATETIME
+); CREATE TABLE users (
+    User_ID INT,
+    Username TEXT,
+    Email TEXT
+);"
+media_02,"videos : Video_ID (INT), Title (TEXT), Description (TEXT), Upload_Date (DATE), Channel_ID (INT) | channels : Channel_ID (INT), Name (TEXT), Owner_ID (INT) | subscriptions : Subscription_ID (INT), User_ID (INT), Channel_ID (INT), Subscription_Date (DATE) | likes : Like_ID (INT), Video_ID (INT), User_ID (INT), Like_Date (DATE)","CREATE TABLE videos (
+    Video_ID INT,
+    Title TEXT,
+    Description TEXT,
+    Upload_Date DATE,
+    Channel_ID INT
+); CREATE TABLE channels (
+    Channel_ID INT,
+    Name TEXT,
+    Owner_ID INT
+); CREATE TABLE subscriptions (
+    Subscription_ID INT,
+    User_ID INT,
+    Channel_ID INT,
+    Subscription_Date DATE
+); CREATE TABLE likes (
+    Like_ID INT,
+    Video_ID INT,
+    User_ID INT,
+    Like_Date DATE
+);"
+logistics_01,"vehicles : Vehicle_ID (INT), Type (TEXT), Capacity (INT), Status (TEXT) | routes : Route_ID (INT), Origin (TEXT), Destination (TEXT), Distance (DECIMAL) | shipments : Shipment_ID (INT), Vehicle_ID (INT), Route_ID (INT), Departure_Date (DATE), Arrival_Date (DATE) | drivers : Driver_ID (INT), Name (TEXT), License_Number (TEXT)","CREATE TABLE vehicles (
+    Vehicle_ID INT,
+    Type TEXT,
+    Capacity INT,
+    Status TEXT
+); CREATE TABLE routes (
+    Route_ID INT,
+    Origin TEXT,
+    Destination TEXT,
+    Distance DECIMAL
+); CREATE TABLE shipments (
+    Shipment_ID INT,
+    Vehicle_ID INT,
+    Route_ID INT,
+    Departure_Date DATE,
+    Arrival_Date DATE
+); CREATE TABLE drivers (
+    Driver_ID INT,
+    Name TEXT,
+    License_Number TEXT
+);"
+logistics_02,"warehouses : Warehouse_ID (INT), Location (TEXT), Capacity (INT) | inventory : Inventory_ID (INT), Warehouse_ID (INT), Product_ID (INT), Quantity (INT) | transfers : Transfer_ID (INT), From_Warehouse (INT), To_Warehouse (INT), Product_ID (INT), Quantity (INT), Transfer_Date (DATE) | suppliers : Supplier_ID (INT), Name (TEXT), Contact_Info (TEXT)","CREATE TABLE warehouses (
+    Warehouse_ID INT,
+    Location TEXT,
+    Capacity INT
+); CREATE TABLE inventory (
+    Inventory_ID INT,
+    Warehouse_ID INT,
+    Product_ID INT,
+    Quantity INT
+); CREATE TABLE transfers (
+    Transfer_ID INT,
+    From_Warehouse INT,
+    To_Warehouse INT,
+    Product_ID INT,
+    Quantity INT,
+    Transfer_Date DATE
+); CREATE TABLE suppliers (
+    Supplier_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+);"
+hospitality_01,"restaurants : Restaurant_ID (INT), Name (TEXT), Location (TEXT), Cuisine (TEXT) | menus : Menu_ID (INT), Restaurant_ID (INT), Item_Name (TEXT), Price (DECIMAL) | reservations : Reservation_ID (INT), Restaurant_ID (INT), Customer_ID (INT), Reservation_Date (DATETIME) | customers : Customer_ID (INT), Name (TEXT), Phone (TEXT), Email (TEXT)","CREATE TABLE restaurants (
+    Restaurant_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Cuisine TEXT
+); CREATE TABLE menus (
+    Menu_ID INT,
+    Restaurant_ID INT,
+    Item_Name TEXT,
+    Price DECIMAL
+); CREATE TABLE reservations (
+    Reservation_ID INT,
+    Restaurant_ID INT,
+    Customer_ID INT,
+    Reservation_Date DATETIME
+); CREATE TABLE customers (
+    Customer_ID INT,
+    Name TEXT,
+    Phone TEXT,
+    Email TEXT
+);"
+hospitality_02,"hotels : Hotel_ID (INT), Name (TEXT), Location (TEXT), Star_Rating (INT) | rooms : Room_ID (INT), Hotel_ID (INT), Room_Number (TEXT), Type (TEXT), Price (DECIMAL) | bookings : Booking_ID (INT), Room_ID (INT), Customer_ID (INT), Check_In (DATE), Check_Out (DATE) | amenities : Amenity_ID (INT), Hotel_ID (INT), Amenity_Name (TEXT)","CREATE TABLE hotels (
+    Hotel_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Star_Rating INT
+); CREATE TABLE rooms (
+    Room_ID INT,
+    Hotel_ID INT,
+    Room_Number TEXT,
+    Type TEXT,
+    Price DECIMAL
+); CREATE TABLE bookings (
+    Booking_ID INT,
+    Room_ID INT,
+    Customer_ID INT,
+    Check_In DATE,
+    Check_Out DATE
+); CREATE TABLE amenities (
+    Amenity_ID INT,
+    Hotel_ID INT,
+    Amenity_Name TEXT
+);"
+sports_01,"teams : Team_ID (INT), Name (TEXT), City (TEXT), Coach (TEXT) | players : Player_ID (INT), Name (TEXT), Position (TEXT), Team_ID (INT) | matches : Match_ID (INT), Home_Team_ID (INT), Away_Team_ID (INT), Match_Date (DATE), Venue (TEXT) | statistics : Stat_ID (INT), Player_ID (INT), Match_ID (INT), Points (INT), Assists (INT)","CREATE TABLE teams (
+    Team_ID INT,
+    Name TEXT,
+    City TEXT,
+    Coach TEXT
+); CREATE TABLE players (
+    Player_ID INT,
+    Name TEXT,
+    Position TEXT,
+    Team_ID INT
+); CREATE TABLE matches (
+    Match_ID INT,
+    Home_Team_ID INT,
+    Away_Team_ID INT,
+    Match_Date DATE,
+    Venue TEXT
+); CREATE TABLE statistics (
+    Stat_ID INT,
+    Player_ID INT,
+    Match_ID INT,
+    Points INT,
+    Assists INT
+);"
+sports_02,"leagues : League_ID (INT), Name (TEXT), Sport (TEXT), Season (TEXT) | seasons : Season_ID (INT), League_ID (INT), Year (INT) | games : Game_ID (INT), Season_ID (INT), Home_Team (INT), Away_Team (INT), Date (DATE) | standings : Standing_ID (INT), Team_ID (INT), League_ID (INT), Wins (INT), Losses (INT), Draws (INT)","CREATE TABLE leagues (
+    League_ID INT,
+    Name TEXT,
+    Sport TEXT,
+    Season TEXT
+); CREATE TABLE seasons (
+    Season_ID INT,
+    League_ID INT,
+    Year INT
+); CREATE TABLE games (
+    Game_ID INT,
+    Season_ID INT,
+    Home_Team INT,
+    Away_Team INT,
+    Date DATE
+); CREATE TABLE standings (
+    Standing_ID INT,
+    Team_ID INT,
+    League_ID INT,
+    Wins INT,
+    Losses INT,
+    Draws INT
+);"
+agriculture_01,"farms : Farm_ID (INT), Name (TEXT), Location (TEXT), Owner_ID (INT) | crops : Crop_ID (INT), Farm_ID (INT), Name (TEXT), Plant_Date (DATE), Harvest_Date (DATE) | equipment : Equipment_ID (INT), Farm_ID (INT), Name (TEXT), Purchase_Date (DATE), Status (TEXT) | workers : Worker_ID (INT), Farm_ID (INT), Name (TEXT), Role (TEXT)","CREATE TABLE farms (
+    Farm_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Owner_ID INT
+); CREATE TABLE crops (
+    Crop_ID INT,
+    Farm_ID INT,
+    Name TEXT,
+    Plant_Date DATE,
+    Harvest_Date DATE
+); CREATE TABLE equipment (
+    Equipment_ID INT,
+    Farm_ID INT,
+    Name TEXT,
+    Purchase_Date DATE,
+    Status TEXT
+); CREATE TABLE workers (
+    Worker_ID INT,
+    Farm_ID INT,
+    Name TEXT,
+    Role TEXT
+);"
+agriculture_02,"livestock : Livestock_ID (INT), Farm_ID (INT), Type (TEXT), Breed (TEXT), Birth_Date (DATE) | feed_suppliers : Supplier_ID (INT), Name (TEXT), Contact_Info (TEXT) | feed_orders : Order_ID (INT), Supplier_ID (INT), Livestock_ID (INT), Quantity (INT), Order_Date (DATE) | health_checks : Check_ID (INT), Livestock_ID (INT), Check_Date (DATE), Health_Status (TEXT)","CREATE TABLE livestock (
+    Livestock_ID INT,
+    Farm_ID INT,
+    Type TEXT,
+    Breed TEXT,
+    Birth_Date DATE
+); CREATE TABLE feed_suppliers (
+    Supplier_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+); CREATE TABLE feed_orders (
+    Order_ID INT,
+    Supplier_ID INT,
+    Livestock_ID INT,
+    Quantity INT,
+    Order_Date DATE
+); CREATE TABLE health_checks (
+    Check_ID INT,
+    Livestock_ID INT,
+    Check_Date DATE,
+    Health_Status TEXT
+);"
+automotive_01,"cars : Car_ID (INT), Make (TEXT), Model (TEXT), Year (INT), Price (DECIMAL) | dealerships : Dealership_ID (INT), Name (TEXT), Location (TEXT), Contact (TEXT) | sales : Sale_ID (INT), Car_ID (INT), Dealership_ID (INT), Customer_ID (INT), Sale_Date (DATE), Sale_Price (DECIMAL) | customers : Customer_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT)","CREATE TABLE cars (
+    Car_ID INT,
+    Make TEXT,
+    Model TEXT,
+    Year INT,
+    Price DECIMAL
+); CREATE TABLE dealerships (
+    Dealership_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Contact TEXT
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Car_ID INT,
+    Dealership_ID INT,
+    Customer_ID INT,
+    Sale_Date DATE,
+    Sale_Price DECIMAL
+); CREATE TABLE customers (
+    Customer_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+);"
+automotive_02,"services : Service_ID (INT), Name (TEXT), Description (TEXT), Price (DECIMAL) | appointments : Appointment_ID (INT), Car_ID (INT), Service_ID (INT), Appointment_Date (DATETIME) | mechanics : Mechanic_ID (INT), Name (TEXT), Specialization (TEXT) | service_records : Record_ID (INT), Car_ID (INT), Service_ID (INT), Mechanic_ID (INT), Service_Date (DATE)","CREATE TABLE services (
+    Service_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Price DECIMAL
+); CREATE TABLE appointments (
+    Appointment_ID INT,
+    Car_ID INT,
+    Service_ID INT,
+    Appointment_Date DATETIME
+); CREATE TABLE mechanics (
+    Mechanic_ID INT,
+    Name TEXT,
+    Specialization TEXT
+); CREATE TABLE service_records (
+    Record_ID INT,
+    Car_ID INT,
+    Service_ID INT,
+    Mechanic_ID INT,
+    Service_Date DATE
+);"
+entertainment_01,"movies : Movie_ID (INT), Title (TEXT), Release_Date (DATE), Genre (TEXT), Director_ID (INT) | directors : Director_ID (INT), Name (TEXT), Birth_Date (DATE) | actors : Actor_ID (INT), Name (TEXT), Birth_Date (DATE) | cast : Cast_ID (INT), Movie_ID (INT), Actor_ID (INT), Role (TEXT)","CREATE TABLE movies (
+    Movie_ID INT,
+    Title TEXT,
+    Release_Date DATE,
+    Genre TEXT,
+    Director_ID INT
+); CREATE TABLE directors (
+    Director_ID INT,
+    Name TEXT,
+    Birth_Date DATE
+); CREATE TABLE actors (
+    Actor_ID INT,
+    Name TEXT,
+    Birth_Date DATE
+); CREATE TABLE cast (
+    Cast_ID INT,
+    Movie_ID INT,
+    Actor_ID INT,
+    Role TEXT
+);"
+entertainment_02,"concerts : Concert_ID (INT), Artist_ID (INT), Venue (TEXT), Date (DATE), Ticket_Price (DECIMAL) | artists : Artist_ID (INT), Name (TEXT), Genre (TEXT) | tickets : Ticket_ID (INT), Concert_ID (INT), Customer_ID (INT), Purchase_Date (DATE), Price (DECIMAL) | attendees : Attendee_ID (INT), Concert_ID (INT), Customer_ID (INT), Seat_Number (TEXT)","CREATE TABLE concerts (
+    Concert_ID INT,
+    Artist_ID INT,
+    Venue TEXT,
+    Date DATE,
+    Ticket_Price DECIMAL
+); CREATE TABLE artists (
+    Artist_ID INT,
+    Name TEXT,
+    Genre TEXT
+); CREATE TABLE tickets (
+    Ticket_ID INT,
+    Concert_ID INT,
+    Customer_ID INT,
+    Purchase_Date DATE,
+    Price DECIMAL
+); CREATE TABLE attendees (
+    Attendee_ID INT,
+    Concert_ID INT,
+    Customer_ID INT,
+    Seat_Number TEXT
+);"
+energy_01,"power_plants : Plant_ID (INT), Name (TEXT), Location (TEXT), Capacity_MW (DECIMAL), Type (TEXT) | generators : Generator_ID (INT), Plant_ID (INT), Capacity_MW (DECIMAL), Status (TEXT) | maintenance : Maintenance_ID (INT), Generator_ID (INT), Maintenance_Date (DATE), Details (TEXT) | energy_production : Production_ID (INT), Plant_ID (INT), Date (DATE), Energy_Produced_MWh (DECIMAL)","CREATE TABLE power_plants (
+    Plant_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Capacity_MW DECIMAL,
+    Type TEXT
+); CREATE TABLE generators (
+    Generator_ID INT,
+    Plant_ID INT,
+    Capacity_MW DECIMAL,
+    Status TEXT
+); CREATE TABLE maintenance (
+    Maintenance_ID INT,
+    Generator_ID INT,
+    Maintenance_Date DATE,
+    Details TEXT
+); CREATE TABLE energy_production (
+    Production_ID INT,
+    Plant_ID INT,
+    Date DATE,
+    Energy_Produced_MWh DECIMAL
+);"
+energy_02,"consumers : Consumer_ID (INT), Name (TEXT), Address (TEXT), Connection_Date (DATE) | bills : Bill_ID (INT), Consumer_ID (INT), Bill_Date (DATE), Amount (DECIMAL) | payments : Payment_ID (INT), Bill_ID (INT), Payment_Date (DATE), Amount (DECIMAL) | tariffs : Tariff_ID (INT), Type (TEXT), Rate (DECIMAL), Effective_Date (DATE)","CREATE TABLE consumers (
+    Consumer_ID INT,
+    Name TEXT,
+    Address TEXT,
+    Connection_Date DATE
+); CREATE TABLE bills (
+    Bill_ID INT,
+    Consumer_ID INT,
+    Bill_Date DATE,
+    Amount DECIMAL
+); CREATE TABLE payments (
+    Payment_ID INT,
+    Bill_ID INT,
+    Payment_Date DATE,
+    Amount DECIMAL
+); CREATE TABLE tariffs (
+    Tariff_ID INT,
+    Type TEXT,
+    Rate DECIMAL,
+    Effective_Date DATE
+);"
+government_01,"departments : Department_ID (INT), Name (TEXT), Head_ID (INT) | employees : Employee_ID (INT), Department_ID (INT), Name (TEXT), Position (TEXT) | projects : Project_ID (INT), Department_ID (INT), Name (TEXT), Budget (DECIMAL), Start_Date (DATE), End_Date (DATE) | budgets : Budget_ID (INT), Department_ID (INT), Year (INT), Amount (DECIMAL)","CREATE TABLE departments (
+    Department_ID INT,
+    Name TEXT,
+    Head_ID INT
+); CREATE TABLE employees (
+    Employee_ID INT,
+    Department_ID INT,
+    Name TEXT,
+    Position TEXT
+); CREATE TABLE projects (
+    Project_ID INT,
+    Department_ID INT,
+    Name TEXT,
+    Budget DECIMAL,
+    Start_Date DATE,
+    End_Date DATE
+); CREATE TABLE budgets (
+    Budget_ID INT,
+    Department_ID INT,
+    Year INT,
+    Amount DECIMAL
+);"
+government_02,"policies : Policy_ID (INT), Title (TEXT), Description (TEXT), Effective_Date (DATE) | agencies : Agency_ID (INT), Name (TEXT), Policy_ID (INT), Contact_Info (TEXT) | officers : Officer_ID (INT), Agency_ID (INT), Name (TEXT), Rank (TEXT) | reports : Report_ID (INT), Policy_ID (INT), Date (DATE), Summary (TEXT)","CREATE TABLE policies (
+    Policy_ID INT,
+    Title TEXT,
+    Description TEXT,
+    Effective_Date DATE
+); CREATE TABLE agencies (
+    Agency_ID INT,
+    Name TEXT,
+    Policy_ID INT,
+    Contact_Info TEXT
+); CREATE TABLE officers (
+    Officer_ID INT,
+    Agency_ID INT,
+    Name TEXT,
+    Rank TEXT
+); CREATE TABLE reports (
+    Report_ID INT,
+    Policy_ID INT,
+    Date DATE,
+    Summary TEXT
+);"
+legal_01,"cases : Case_ID (INT), Title (TEXT), Filing_Date (DATE), Status (TEXT) | lawyers : Lawyer_ID (INT), Name (TEXT), Specialization (TEXT) | clients : Client_ID (INT), Name (TEXT), Contact_Info (TEXT) | hearings : Hearing_ID (INT), Case_ID (INT), Date (DATE), Location (TEXT)","CREATE TABLE cases (
+    Case_ID INT,
+    Title TEXT,
+    Filing_Date DATE,
+    Status TEXT
+); CREATE TABLE lawyers (
+    Lawyer_ID INT,
+    Name TEXT,
+    Specialization TEXT
+); CREATE TABLE clients (
+    Client_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+); CREATE TABLE hearings (
+    Hearing_ID INT,
+    Case_ID INT,
+    Date DATE,
+    Location TEXT
+);"
+legal_02,"courts : Court_ID (INT), Name (TEXT), Location (TEXT), Type (TEXT) | judges : Judge_ID (INT), Name (TEXT), Court_ID (INT), Experience_Years (INT) | verdicts : Verdict_ID (INT), Case_ID (INT), Judge_ID (INT), Verdict (TEXT), Date (DATE) | evidence : Evidence_ID (INT), Case_ID (INT), Description (TEXT), Collected_Date (DATE)","CREATE TABLE courts (
+    Court_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Type TEXT
+); CREATE TABLE judges (
+    Judge_ID INT,
+    Name TEXT,
+    Court_ID INT,
+    Experience_Years INT
+); CREATE TABLE verdicts (
+    Verdict_ID INT,
+    Case_ID INT,
+    Judge_ID INT,
+    Verdict TEXT,
+    Date DATE
+); CREATE TABLE evidence (
+    Evidence_ID INT,
+    Case_ID INT,
+    Description TEXT,
+    Collected_Date DATE
+);"
+marketing_01,"campaigns : Campaign_ID (INT), Name (TEXT), Start_Date (DATE), End_Date (DATE), Budget (DECIMAL) | channels : Channel_ID (INT), Name (TEXT), Type (TEXT) | ads : Ad_ID (INT), Campaign_ID (INT), Channel_ID (INT), Content (TEXT), Spend (DECIMAL) | metrics : Metric_ID (INT), Campaign_ID (INT), Channel_ID (INT), Impressions (INT), Clicks (INT), Conversions (INT)","CREATE TABLE campaigns (
+    Campaign_ID INT,
+    Name TEXT,
+    Start_Date DATE,
+    End_Date DATE,
+    Budget DECIMAL
+); CREATE TABLE channels (
+    Channel_ID INT,
+    Name TEXT,
+    Type TEXT
+); CREATE TABLE ads (
+    Ad_ID INT,
+    Campaign_ID INT,
+    Channel_ID INT,
+    Content TEXT,
+    Spend DECIMAL
+); CREATE TABLE metrics (
+    Metric_ID INT,
+    Campaign_ID INT,
+    Channel_ID INT,
+    Impressions INT,
+    Clicks INT,
+    Conversions INT
+);"
+marketing_02,"segments : Segment_ID (INT), Name (TEXT), Description (TEXT) | target_audiences : Audience_ID (INT), Segment_ID (INT), Demographics (TEXT), Interests (TEXT) | messages : Message_ID (INT), Campaign_ID (INT), Audience_ID (INT), Content (TEXT), Sent_Date (DATE) | responses : Response_ID (INT), Message_ID (INT), Response_Type (TEXT), Response_Date (DATE)","CREATE TABLE segments (
+    Segment_ID INT,
+    Name TEXT,
+    Description TEXT
+); CREATE TABLE target_audiences (
+    Audience_ID INT,
+    Segment_ID INT,
+    Demographics TEXT,
+    Interests TEXT
+); CREATE TABLE messages (
+    Message_ID INT,
+    Campaign_ID INT,
+    Audience_ID INT,
+    Content TEXT,
+    Sent_Date DATE
+); CREATE TABLE responses (
+    Response_ID INT,
+    Message_ID INT,
+    Response_Type TEXT,
+    Response_Date DATE
+);"
+nonprofit_01,"donors : Donor_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT) | donations : Donation_ID (INT), Donor_ID (INT), Amount (DECIMAL), Date (DATE) | campaigns : Campaign_ID (INT), Name (TEXT), Goal_Amount (DECIMAL), Start_Date (DATE), End_Date (DATE) | volunteers : Volunteer_ID (INT), Name (TEXT), Contact_Info (TEXT), Campaign_ID (INT)","CREATE TABLE donors (
+    Donor_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+); CREATE TABLE donations (
+    Donation_ID INT,
+    Donor_ID INT,
+    Amount DECIMAL,
+    Date DATE
+); CREATE TABLE campaigns (
+    Campaign_ID INT,
+    Name TEXT,
+    Goal_Amount DECIMAL,
+    Start_Date DATE,
+    End_Date DATE
+); CREATE TABLE volunteers (
+    Volunteer_ID INT,
+    Name TEXT,
+    Contact_Info TEXT,
+    Campaign_ID INT
+);"
+nonprofit_02,"projects : Project_ID (INT), Name (TEXT), Description (TEXT), Start_Date (DATE), End_Date (DATE) | beneficiaries : Beneficiary_ID (INT), Name (TEXT), Project_ID (INT), Assistance_Type (TEXT) | funds : Fund_ID (INT), Project_ID (INT), Amount (DECIMAL), Source (TEXT) | reports : Report_ID (INT), Project_ID (INT), Date (DATE), Summary (TEXT)","CREATE TABLE projects (
+    Project_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Start_Date DATE,
+    End_Date DATE
+); CREATE TABLE beneficiaries (
+    Beneficiary_ID INT,
+    Name TEXT,
+    Project_ID INT,
+    Assistance_Type TEXT
+); CREATE TABLE funds (
+    Fund_ID INT,
+    Project_ID INT,
+    Amount DECIMAL,
+    Source TEXT
+); CREATE TABLE reports (
+    Report_ID INT,
+    Project_ID INT,
+    Date DATE,
+    Summary TEXT
+);"
+retail_01,"stores : Store_ID (INT), Name (TEXT), Location (TEXT), Manager_ID (INT) | products : Product_ID (INT), Name (TEXT), Category (TEXT), Price (DECIMAL), Stock (INT) | sales : Sale_ID (INT), Store_ID (INT), Product_ID (INT), Sale_Date (DATE), Quantity (INT), Total_Price (DECIMAL) | employees : Employee_ID (INT), Store_ID (INT), Name (TEXT), Position (TEXT)","CREATE TABLE stores (
+    Store_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Manager_ID INT
+); CREATE TABLE products (
+    Product_ID INT,
+    Name TEXT,
+    Category TEXT,
+    Price DECIMAL,
+    Stock INT
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Store_ID INT,
+    Product_ID INT,
+    Sale_Date DATE,
+    Quantity INT,
+    Total_Price DECIMAL
+); CREATE TABLE employees (
+    Employee_ID INT,
+    Store_ID INT,
+    Name TEXT,
+    Position TEXT
+);"
+retail_02,"suppliers : Supplier_ID (INT), Name (TEXT), Contact_Info (TEXT), Product_ID (INT) | shipments : Shipment_ID (INT), Supplier_ID (INT), Store_ID (INT), Shipment_Date (DATE), Quantity (INT) | inventory : Inventory_ID (INT), Store_ID (INT), Product_ID (INT), Quantity (INT) | promotions : Promotion_ID (INT), Store_ID (INT), Product_ID (INT), Discount (DECIMAL), Start_Date (DATE), End_Date (DATE)","CREATE TABLE suppliers (
+    Supplier_ID INT,
+    Name TEXT,
+    Contact_Info TEXT,
+    Product_ID INT
+); CREATE TABLE shipments (
+    Shipment_ID INT,
+    Supplier_ID INT,
+    Store_ID INT,
+    Shipment_Date DATE,
+    Quantity INT
+); CREATE TABLE inventory (
+    Inventory_ID INT,
+    Store_ID INT,
+    Product_ID INT,
+    Quantity INT
+); CREATE TABLE promotions (
+    Promotion_ID INT,
+    Store_ID INT,
+    Product_ID INT,
+    Discount DECIMAL,
+    Start_Date DATE,
+    End_Date DATE
+);"
+technology_01,"software : Software_ID (INT), Name (TEXT), Version (TEXT), Release_Date (DATE), Developer_ID (INT) | developers : Developer_ID (INT), Name (TEXT), Contact_Email (TEXT) | licenses : License_ID (INT), Software_ID (INT), Customer_ID (INT), License_Key (TEXT), Expiry_Date (DATE) | customers : Customer_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT)","CREATE TABLE software (
+    Software_ID INT,
+    Name TEXT,
+    Version TEXT,
+    Release_Date DATE,
+    Developer_ID INT
+); CREATE TABLE developers (
+    Developer_ID INT,
+    Name TEXT,
+    Contact_Email TEXT
+); CREATE TABLE licenses (
+    License_ID INT,
+    Software_ID INT,
+    Customer_ID INT,
+    License_Key TEXT,
+    Expiry_Date DATE
+); CREATE TABLE customers (
+    Customer_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+);"
+technology_02,"devices : Device_ID (INT), Type (TEXT), Model (TEXT), Manufacturer (TEXT), Release_Date (DATE) | warranties : Warranty_ID (INT), Device_ID (INT), Start_Date (DATE), End_Date (DATE), Coverage (TEXT) | repairs : Repair_ID (INT), Device_ID (INT), Repair_Date (DATE), Description (TEXT), Cost (DECIMAL) | customers : Customer_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT)","CREATE TABLE devices (
+    Device_ID INT,
+    Type TEXT,
+    Model TEXT,
+    Manufacturer TEXT,
+    Release_Date DATE
+); CREATE TABLE warranties (
+    Warranty_ID INT,
+    Device_ID INT,
+    Start_Date DATE,
+    End_Date DATE,
+    Coverage TEXT
+); CREATE TABLE repairs (
+    Repair_ID INT,
+    Device_ID INT,
+    Repair_Date DATE,
+    Description TEXT,
+    Cost DECIMAL
+); CREATE TABLE customers (
+    Customer_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+);"
+agriculture_03,"fertilizers : Fertilizer_ID (INT), Name (TEXT), Type (TEXT), Manufacturer (TEXT), Price (DECIMAL) | sales : Sale_ID (INT), Fertilizer_ID (INT), Farmer_ID (INT), Quantity (INT), Sale_Date (DATE) | farmers : Farmer_ID (INT), Name (TEXT), Location (TEXT), Contact (TEXT) | distribution : Distribution_ID (INT), Sale_ID (INT), Transport_ID (INT), Delivery_Date (DATE)","CREATE TABLE fertilizers (
+    Fertilizer_ID INT,
+    Name TEXT,
+    Type TEXT,
+    Manufacturer TEXT,
+    Price DECIMAL
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Fertilizer_ID INT,
+    Farmer_ID INT,
+    Quantity INT,
+    Sale_Date DATE
+); CREATE TABLE farmers (
+    Farmer_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Contact TEXT
+); CREATE TABLE distribution (
+    Distribution_ID INT,
+    Sale_ID INT,
+    Transport_ID INT,
+    Delivery_Date DATE
+);"
+automotive_03,"parts : Part_ID (INT), Name (TEXT), Description (TEXT), Price (DECIMAL), Supplier_ID (INT) | suppliers : Supplier_ID (INT), Name (TEXT), Contact_Info (TEXT), Location (TEXT) | inventory : Inventory_ID (INT), Part_ID (INT), Quantity (INT), Warehouse_ID (INT) | warehouses : Warehouse_ID (INT), Location (TEXT), Capacity (INT)","CREATE TABLE parts (
+    Part_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Price DECIMAL,
+    Supplier_ID INT
+); CREATE TABLE suppliers (
+    Supplier_ID INT,
+    Name TEXT,
+    Contact_Info TEXT,
+    Location TEXT
+); CREATE TABLE inventory (
+    Inventory_ID INT,
+    Part_ID INT,
+    Quantity INT,
+    Warehouse_ID INT
+); CREATE TABLE warehouses (
+    Warehouse_ID INT,
+    Location TEXT,
+    Capacity INT
+);"
+entertainment_03,"books : Book_ID (INT), Title (TEXT), Author_ID (INT), Genre (TEXT), Publish_Date (DATE) | authors : Author_ID (INT), Name (TEXT), Biography (TEXT) | publishers : Publisher_ID (INT), Name (TEXT), Contact_Info (TEXT) | sales : Sale_ID (INT), Book_ID (INT), Publisher_ID (INT), Sale_Date (DATE), Quantity (INT)","CREATE TABLE books (
+    Book_ID INT,
+    Title TEXT,
+    Author_ID INT,
+    Genre TEXT,
+    Publish_Date DATE
+); CREATE TABLE authors (
+    Author_ID INT,
+    Name TEXT,
+    Biography TEXT
+); CREATE TABLE publishers (
+    Publisher_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Book_ID INT,
+    Publisher_ID INT,
+    Sale_Date DATE,
+    Quantity INT
+);"
+energy_03,"solar_panels : Panel_ID (INT), Plant_ID (INT), Efficiency (DECIMAL), Installation_Date (DATE) | wind_turbines : Turbine_ID (INT), Plant_ID (INT), Capacity (DECIMAL), Installation_Date (DATE) | plant_operations : Operation_ID (INT), Plant_ID (INT), Date (DATE), Status (TEXT) | energy_storage : Storage_ID (INT), Plant_ID (INT), Capacity_MWh (DECIMAL), Type (TEXT)","CREATE TABLE solar_panels (
+    Panel_ID INT,
+    Plant_ID INT,
+    Efficiency DECIMAL,
+    Installation_Date DATE
+); CREATE TABLE wind_turbines (
+    Turbine_ID INT,
+    Plant_ID INT,
+    Capacity DECIMAL,
+    Installation_Date DATE
+); CREATE TABLE plant_operations (
+    Operation_ID INT,
+    Plant_ID INT,
+    Date DATE,
+    Status TEXT
+); CREATE TABLE energy_storage (
+    Storage_ID INT,
+    Plant_ID INT,
+    Capacity_MWh DECIMAL,
+    Type TEXT
+);"
+government_03,"public_services : Service_ID (INT), Name (TEXT), Description (TEXT), Department_ID (INT) | service_requests : Request_ID (INT), Service_ID (INT), Citizen_ID (INT), Request_Date (DATE), Status (TEXT) | citizens : Citizen_ID (INT), Name (TEXT), Address (TEXT), Email (TEXT) | feedback : Feedback_ID (INT), Request_ID (INT), Rating (INT), Comments (TEXT)","CREATE TABLE public_services (
+    Service_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Department_ID INT
+); CREATE TABLE service_requests (
+    Request_ID INT,
+    Service_ID INT,
+    Citizen_ID INT,
+    Request_Date DATE,
+    Status TEXT
+); CREATE TABLE citizens (
+    Citizen_ID INT,
+    Name TEXT,
+    Address TEXT,
+    Email TEXT
+); CREATE TABLE feedback (
+    Feedback_ID INT,
+    Request_ID INT,
+    Rating INT,
+    Comments TEXT
+);"
+legal_03,"contracts : Contract_ID (INT), Party_A_ID (INT), Party_B_ID (INT), Start_Date (DATE), End_Date (DATE), Terms (TEXT) | parties : Party_ID (INT), Name (TEXT), Contact_Info (TEXT) | clauses : Clause_ID (INT), Contract_ID (INT), Description (TEXT), Effective (BOOLEAN) | amendments : Amendment_ID (INT), Contract_ID (INT), Amendment_Text (TEXT), Amendment_Date (DATE)","CREATE TABLE contracts (
+    Contract_ID INT,
+    Party_A_ID INT,
+    Party_B_ID INT,
+    Start_Date DATE,
+    End_Date DATE,
+    Terms TEXT
+); CREATE TABLE parties (
+    Party_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+); CREATE TABLE clauses (
+    Clause_ID INT,
+    Contract_ID INT,
+    Description TEXT,
+    Effective BOOLEAN
+); CREATE TABLE amendments (
+    Amendment_ID INT,
+    Contract_ID INT,
+    Amendment_Text TEXT,
+    Amendment_Date DATE
+);"
+marketing_03,"market_research : Research_ID (INT), Topic (TEXT), Conducted_Date (DATE), Findings (TEXT) | focus_groups : Group_ID (INT), Research_ID (INT), Participant_Count (INT), Feedback_Summary (TEXT) | surveys : Survey_ID (INT), Research_ID (INT), Question (TEXT), Response_Type (TEXT) | results : Result_ID (INT), Survey_ID (INT), Response (TEXT), Count (INT)","CREATE TABLE market_research (
+    Research_ID INT,
+    Topic TEXT,
+    Conducted_Date DATE,
+    Findings TEXT
+); CREATE TABLE focus_groups (
+    Group_ID INT,
+    Research_ID INT,
+    Participant_Count INT,
+    Feedback_Summary TEXT
+); CREATE TABLE surveys (
+    Survey_ID INT,
+    Research_ID INT,
+    Question TEXT,
+    Response_Type TEXT
+); CREATE TABLE results (
+    Result_ID INT,
+    Survey_ID INT,
+    Response TEXT,
+    Count INT
+);"
+nonprofit_03,"grants : Grant_ID (INT), Name (TEXT), Amount (DECIMAL), Recipient_ID (INT), Award_Date (DATE) | recipients : Recipient_ID (INT), Name (TEXT), Organization (TEXT), Contact_Info (TEXT) | fundraising_events : Event_ID (INT), Name (TEXT), Date (DATE), Location (TEXT), Goal_Amount (DECIMAL) | donations : Donation_ID (INT), Event_ID (INT), Donor_ID (INT), Amount (DECIMAL), Donation_Date (DATE)","CREATE TABLE grants (
+    Grant_ID INT,
+    Name TEXT,
+    Amount DECIMAL,
+    Recipient_ID INT,
+    Award_Date DATE
+); CREATE TABLE recipients (
+    Recipient_ID INT,
+    Name TEXT,
+    Organization TEXT,
+    Contact_Info TEXT
+); CREATE TABLE fundraising_events (
+    Event_ID INT,
+    Name TEXT,
+    Date DATE,
+    Location TEXT,
+    Goal_Amount DECIMAL
+); CREATE TABLE donations (
+    Donation_ID INT,
+    Event_ID INT,
+    Donor_ID INT,
+    Amount DECIMAL,
+    Donation_Date DATE
+);"
+retail_03,"categories : Category_ID (INT), Name (TEXT), Description (TEXT) | products : Product_ID (INT), Category_ID (INT), Name (TEXT), Price (DECIMAL), Stock (INT) | customers : Customer_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT), Address (TEXT) | orders : Order_ID (INT), Customer_ID (INT), Order_Date (DATE), Total_Amount (DECIMAL)","CREATE TABLE categories (
+    Category_ID INT,
+    Name TEXT,
+    Description TEXT
+); CREATE TABLE products (
+    Product_ID INT,
+    Category_ID INT,
+    Name TEXT,
+    Price DECIMAL,
+    Stock INT
+); CREATE TABLE customers (
+    Customer_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT,
+    Address TEXT
+); CREATE TABLE orders (
+    Order_ID INT,
+    Customer_ID INT,
+    Order_Date DATE,
+    Total_Amount DECIMAL
+);"
+technology_03,"applications : App_ID (INT), Name (TEXT), Version (TEXT), Release_Date (DATE), Developer_ID (INT) | developers : Developer_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT) | users : User_ID (INT), App_ID (INT), Username (TEXT), Password (TEXT), Signup_Date (DATE) | subscriptions : Subscription_ID (INT), User_ID (INT), App_ID (INT), Start_Date (DATE), End_Date (DATE)","CREATE TABLE applications (
+    App_ID INT,
+    Name TEXT,
+    Version TEXT,
+    Release_Date DATE,
+    Developer_ID INT
+); CREATE TABLE developers (
+    Developer_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+); CREATE TABLE users (
+    User_ID INT,
+    App_ID INT,
+    Username TEXT,
+    Password TEXT,
+    Signup_Date DATE
+); CREATE TABLE subscriptions (
+    Subscription_ID INT,
+    User_ID INT,
+    App_ID INT,
+    Start_Date DATE,
+    End_Date DATE
+);"
+ecommerce_04,"coupons : Coupon_ID (INT), Code (TEXT), Discount (DECIMAL), Expiry_Date (DATE) | coupon_usage : Usage_ID (INT), Coupon_ID (INT), Customer_ID (INT), Usage_Date (DATE) | gift_cards : Card_ID (INT), Code (TEXT), Balance (DECIMAL), Issue_Date (DATE) | transactions : Transaction_ID (INT), Card_ID (INT), Order_ID (INT), Amount (DECIMAL), Transaction_Date (DATE)","CREATE TABLE coupons (
+    Coupon_ID INT,
+    Code TEXT,
+    Discount DECIMAL,
+    Expiry_Date DATE
+); CREATE TABLE coupon_usage (
+    Usage_ID INT,
+    Coupon_ID INT,
+    Customer_ID INT,
+    Usage_Date DATE
+); CREATE TABLE gift_cards (
+    Card_ID INT,
+    Code TEXT,
+    Balance DECIMAL,
+    Issue_Date DATE
+); CREATE TABLE transactions (
+    Transaction_ID INT,
+    Card_ID INT,
+    Order_ID INT,
+    Amount DECIMAL,
+    Transaction_Date DATE
+);"
+healthcare_04,"insurance_policies : Policy_ID (INT), Patient_ID (INT), Provider (TEXT), Coverage_Amount (DECIMAL), Start_Date (DATE), End_Date (DATE) | claims : Claim_ID (INT), Policy_ID (INT), Claim_Date (DATE), Amount (DECIMAL), Status (TEXT) | providers : Provider_ID (INT), Name (TEXT), Type (TEXT), Contact_Info (TEXT) | reimbursements : Reimbursement_ID (INT), Claim_ID (INT), Amount (DECIMAL), Reimbursement_Date (DATE)","CREATE TABLE insurance_policies (
+    Policy_ID INT,
+    Patient_ID INT,
+    Provider TEXT,
+    Coverage_Amount DECIMAL,
+    Start_Date DATE,
+    End_Date DATE
+); CREATE TABLE claims (
+    Claim_ID INT,
+    Policy_ID INT,
+    Claim_Date DATE,
+    Amount DECIMAL,
+    Status TEXT
+); CREATE TABLE providers (
+    Provider_ID INT,
+    Name TEXT,
+    Type TEXT,
+    Contact_Info TEXT
+); CREATE TABLE reimbursements (
+    Reimbursement_ID INT,
+    Claim_ID INT,
+    Amount DECIMAL,
+    Reimbursement_Date DATE
+);"
+education_04,"library : Book_ID (INT), Title (TEXT), Author (TEXT), ISBN (TEXT), Published_Year (INT) | members : Member_ID (INT), Name (TEXT), Email (TEXT), Join_Date (DATE) | loans : Loan_ID (INT), Book_ID (INT), Member_ID (INT), Loan_Date (DATE), Return_Date (DATE) | fines : Fine_ID (INT), Loan_ID (INT), Amount (DECIMAL), Paid (BOOLEAN)","CREATE TABLE library (
+    Book_ID INT,
+    Title TEXT,
+    Author TEXT,
+    ISBN TEXT,
+    Published_Year INT
+); CREATE TABLE members (
+    Member_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Join_Date DATE
+); CREATE TABLE loans (
+    Loan_ID INT,
+    Book_ID INT,
+    Member_ID INT,
+    Loan_Date DATE,
+    Return_Date DATE
+); CREATE TABLE fines (
+    Fine_ID INT,
+    Loan_ID INT,
+    Amount DECIMAL,
+    Paid BOOLEAN
+);"
+finance_04,"credit_cards : Card_ID (INT), Customer_ID (INT), Card_Type (TEXT), Credit_Limit (DECIMAL), Expiry_Date (DATE) | transactions : Transaction_ID (INT), Card_ID (INT), Date (DATE), Amount (DECIMAL), Merchant (TEXT) | rewards : Reward_ID (INT), Card_ID (INT), Points (INT), Redeemed (BOOLEAN) | customers : Customer_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT)","CREATE TABLE credit_cards (
+    Card_ID INT,
+    Customer_ID INT,
+    Card_Type TEXT,
+    Credit_Limit DECIMAL,
+    Expiry_Date DATE
+); CREATE TABLE transactions (
+    Transaction_ID INT,
+    Card_ID INT,
+    Date DATE,
+    Amount DECIMAL,
+    Merchant TEXT
+); CREATE TABLE rewards (
+    Reward_ID INT,
+    Card_ID INT,
+    Points INT,
+    Redeemed BOOLEAN
+); CREATE TABLE customers (
+    Customer_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+);"
+travel_04,"itineraries : Itinerary_ID (INT), Customer_ID (INT), Start_Date (DATE), End_Date (DATE), Destination (TEXT) | activities : Activity_ID (INT), Itinerary_ID (INT), Name (TEXT), Location (TEXT), Time (TIME) | transportations : Transport_ID (INT), Itinerary_ID (INT), Type (TEXT), Provider (TEXT), Cost (DECIMAL) | accommodations : Accommodation_ID (INT), Itinerary_ID (INT), Type (TEXT), Name (TEXT), Cost (DECIMAL)","CREATE TABLE itineraries (
+    Itinerary_ID INT,
+    Customer_ID INT,
+    Start_Date DATE,
+    End_Date DATE,
+    Destination TEXT
+); CREATE TABLE activities (
+    Activity_ID INT,
+    Itinerary_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Time TIME
+); CREATE TABLE transportations (
+    Transport_ID INT,
+    Itinerary_ID INT,
+    Type TEXT,
+    Provider TEXT,
+    Cost DECIMAL
+); CREATE TABLE accommodations (
+    Accommodation_ID INT,
+    Itinerary_ID INT,
+    Type TEXT,
+    Name TEXT,
+    Cost DECIMAL
+);"
+real_estate_04,"leases : Lease_ID (INT), Property_ID (INT), Tenant_ID (INT), Start_Date (DATE), End_Date (DATE), Rent (DECIMAL) | tenants : Tenant_ID (INT), Name (TEXT), Contact_Info (TEXT), Credit_Score (INT) | payments : Payment_ID (INT), Lease_ID (INT), Amount (DECIMAL), Payment_Date (DATE) | maintenance_requests : Request_ID (INT), Lease_ID (INT), Description (TEXT), Status (TEXT)","CREATE TABLE leases (
+    Lease_ID INT,
+    Property_ID INT,
+    Tenant_ID INT,
+    Start_Date DATE,
+    End_Date DATE,
+    Rent DECIMAL
+); CREATE TABLE tenants (
+    Tenant_ID INT,
+    Name TEXT,
+    Contact_Info TEXT,
+    Credit_Score INT
+); CREATE TABLE payments (
+    Payment_ID INT,
+    Lease_ID INT,
+    Amount DECIMAL,
+    Payment_Date DATE
+); CREATE TABLE maintenance_requests (
+    Request_ID INT,
+    Lease_ID INT,
+    Description TEXT,
+    Status TEXT
+);"
+manufacturing_03,"production_lines : Line_ID (INT), Name (TEXT), Capacity (INT), Status (TEXT) | products : Product_ID (INT), Line_ID (INT), Name (TEXT), Price (DECIMAL) | defects : Defect_ID (INT), Product_ID (INT), Description (TEXT), Reported_Date (DATE) | quality_checks : Check_ID (INT), Product_ID (INT), Date (DATE), Passed (BOOLEAN)","CREATE TABLE production_lines (
+    Line_ID INT,
+    Name TEXT,
+    Capacity INT,
+    Status TEXT
+); CREATE TABLE products (
+    Product_ID INT,
+    Line_ID INT,
+    Name TEXT,
+    Price DECIMAL
+); CREATE TABLE defects (
+    Defect_ID INT,
+    Product_ID INT,
+    Description TEXT,
+    Reported_Date DATE
+); CREATE TABLE quality_checks (
+    Check_ID INT,
+    Product_ID INT,
+    Date DATE,
+    Passed BOOLEAN
+);"
+media_03,"podcasts : Podcast_ID (INT), Title (TEXT), Host (TEXT), Release_Date (DATE) | episodes : Episode_ID (INT), Podcast_ID (INT), Episode_Number (INT), Title (TEXT), Duration (INT) | listeners : Listener_ID (INT), Name (TEXT), Email (TEXT) | subscriptions : Subscription_ID (INT), Listener_ID (INT), Podcast_ID (INT), Subscription_Date (DATE)","CREATE TABLE podcasts (
+    Podcast_ID INT,
+    Title TEXT,
+    Host TEXT,
+    Release_Date DATE
+); CREATE TABLE episodes (
+    Episode_ID INT,
+    Podcast_ID INT,
+    Episode_Number INT,
+    Title TEXT,
+    Duration INT
+); CREATE TABLE listeners (
+    Listener_ID INT,
+    Name TEXT,
+    Email TEXT
+); CREATE TABLE subscriptions (
+    Subscription_ID INT,
+    Listener_ID INT,
+    Podcast_ID INT,
+    Subscription_Date DATE
+);"
+logistics_03,"couriers : Courier_ID (INT), Name (TEXT), Vehicle_Type (TEXT), Contact_Info (TEXT) | deliveries : Delivery_ID (INT), Courier_ID (INT), Package_ID (INT), Delivery_Date (DATE), Status (TEXT) | packages : Package_ID (INT), Sender_ID (INT), Receiver_ID (INT), Weight (DECIMAL), Dimensions (TEXT) | senders : Sender_ID (INT), Name (TEXT), Address (TEXT), Contact_Info (TEXT)","CREATE TABLE couriers (
+    Courier_ID INT,
+    Name TEXT,
+    Vehicle_Type TEXT,
+    Contact_Info TEXT
+); CREATE TABLE deliveries (
+    Delivery_ID INT,
+    Courier_ID INT,
+    Package_ID INT,
+    Delivery_Date DATE,
+    Status TEXT
+); CREATE TABLE packages (
+    Package_ID INT,
+    Sender_ID INT,
+    Receiver_ID INT,
+    Weight DECIMAL,
+    Dimensions TEXT
+); CREATE TABLE senders (
+    Sender_ID INT,
+    Name TEXT,
+    Address TEXT,
+    Contact_Info TEXT
+);"
+hospitality_03,"events : Event_ID (INT), Name (TEXT), Date (DATE), Venue (TEXT), Organizer_ID (INT) | organizers : Organizer_ID (INT), Name (TEXT), Contact_Info (TEXT) | tickets : Ticket_ID (INT), Event_ID (INT), Customer_ID (INT), Purchase_Date (DATE), Price (DECIMAL) | attendees : Attendee_ID (INT), Ticket_ID (INT), Name (TEXT), Email (TEXT)","CREATE TABLE events (
+    Event_ID INT,
+    Name TEXT,
+    Date DATE,
+    Venue TEXT,
+    Organizer_ID INT
+); CREATE TABLE organizers (
+    Organizer_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+); CREATE TABLE tickets (
+    Ticket_ID INT,
+    Event_ID INT,
+    Customer_ID INT,
+    Purchase_Date DATE,
+    Price DECIMAL
+); CREATE TABLE attendees (
+    Attendee_ID INT,
+    Ticket_ID INT,
+    Name TEXT,
+    Email TEXT
+);"
+sports_03,"sponsors : Sponsor_ID (INT), Name (TEXT), Industry (TEXT), Contact_Info (TEXT) | sponsorships : Sponsorship_ID (INT), Sponsor_ID (INT), Team_ID (INT), Amount (DECIMAL), Start_Date (DATE), End_Date (DATE) | merchandise : Merchandise_ID (INT), Team_ID (INT), Item_Name (TEXT), Price (DECIMAL), Stock (INT) | sales : Sale_ID (INT), Merchandise_ID (INT), Customer_ID (INT), Sale_Date (DATE), Quantity (INT)","CREATE TABLE sponsors (
+    Sponsor_ID INT,
+    Name TEXT,
+    Industry TEXT,
+    Contact_Info TEXT
+); CREATE TABLE sponsorships (
+    Sponsorship_ID INT,
+    Sponsor_ID INT,
+    Team_ID INT,
+    Amount DECIMAL,
+    Start_Date DATE,
+    End_Date DATE
+); CREATE TABLE merchandise (
+    Merchandise_ID INT,
+    Team_ID INT,
+    Item_Name TEXT,
+    Price DECIMAL,
+    Stock INT
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Merchandise_ID INT,
+    Customer_ID INT,
+    Sale_Date DATE,
+    Quantity INT
+);"
+agriculture_04,"irrigation_systems : System_ID (INT), Farm_ID (INT), Type (TEXT), Installation_Date (DATE) | sensors : Sensor_ID (INT), System_ID (INT), Type (TEXT), Status (TEXT) | readings : Reading_ID (INT), Sensor_ID (INT), Timestamp (DATETIME), Value (DECIMAL) | alerts : Alert_ID (INT), Sensor_ID (INT), Alert_Type (TEXT), Alert_Date (DATE), Resolved (BOOLEAN)","CREATE TABLE irrigation_systems (
+    System_ID INT,
+    Farm_ID INT,
+    Type TEXT,
+    Installation_Date DATE
+); CREATE TABLE sensors (
+    Sensor_ID INT,
+    System_ID INT,
+    Type TEXT,
+    Status TEXT
+); CREATE TABLE readings (
+    Reading_ID INT,
+    Sensor_ID INT,
+    Timestamp DATETIME,
+    Value DECIMAL
+); CREATE TABLE alerts (
+    Alert_ID INT,
+    Sensor_ID INT,
+    Alert_Type TEXT,
+    Alert_Date DATE,
+    Resolved BOOLEAN
+);"
+automotive_04,"dealerships : Dealership_ID (INT), Name (TEXT), Location (TEXT), Manager_ID (INT) | inventory : Inventory_ID (INT), Dealership_ID (INT), Car_ID (INT), Quantity (INT) | sales : Sale_ID (INT), Inventory_ID (INT), Customer_ID (INT), Sale_Date (DATE), Sale_Price (DECIMAL) | service_records : Record_ID (INT), Car_ID (INT), Service_Date (DATE), Description (TEXT), Cost (DECIMAL)","CREATE TABLE dealerships (
+    Dealership_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Manager_ID INT
+); CREATE TABLE inventory (
+    Inventory_ID INT,
+    Dealership_ID INT,
+    Car_ID INT,
+    Quantity INT
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Inventory_ID INT,
+    Customer_ID INT,
+    Sale_Date DATE,
+    Sale_Price DECIMAL
+); CREATE TABLE service_records (
+    Record_ID INT,
+    Car_ID INT,
+    Service_Date DATE,
+    Description TEXT,
+    Cost DECIMAL
+);"
+entertainment_04,"theaters : Theater_ID (INT), Name (TEXT), Location (TEXT), Capacity (INT) | screenings : Screening_ID (INT), Theater_ID (INT), Movie_ID (INT), Screening_Time (DATETIME) | tickets : Ticket_ID (INT), Screening_ID (INT), Customer_ID (INT), Seat_Number (TEXT), Price (DECIMAL) | concessions : Concession_ID (INT), Screening_ID (INT), Item_Name (TEXT), Price (DECIMAL)","CREATE TABLE theaters (
+    Theater_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Capacity INT
+); CREATE TABLE screenings (
+    Screening_ID INT,
+    Theater_ID INT,
+    Movie_ID INT,
+    Screening_Time DATETIME
+); CREATE TABLE tickets (
+    Ticket_ID INT,
+    Screening_ID INT,
+    Customer_ID INT,
+    Seat_Number TEXT,
+    Price DECIMAL
+); CREATE TABLE concessions (
+    Concession_ID INT,
+    Screening_ID INT,
+    Item_Name TEXT,
+    Price DECIMAL
+);"
+energy_04,"batteries : Battery_ID (INT), Plant_ID (INT), Capacity_MWh (DECIMAL), Type (TEXT), Installation_Date (DATE) | grid_connections : Connection_ID (INT), Battery_ID (INT), Grid_ID (INT), Status (TEXT) | energy_flows : Flow_ID (INT), Connection_ID (INT), Timestamp (DATETIME), Amount_MWh (DECIMAL) | maintenance : Maintenance_ID (INT), Battery_ID (INT), Maintenance_Date (DATE), Details (TEXT)","CREATE TABLE batteries (
+    Battery_ID INT,
+    Plant_ID INT,
+    Capacity_MWh DECIMAL,
+    Type TEXT,
+    Installation_Date DATE
+); CREATE TABLE grid_connections (
+    Connection_ID INT,
+    Battery_ID INT,
+    Grid_ID INT,
+    Status TEXT
+); CREATE TABLE energy_flows (
+    Flow_ID INT,
+    Connection_ID INT,
+    Timestamp DATETIME,
+    Amount_MWh DECIMAL
+); CREATE TABLE maintenance (
+    Maintenance_ID INT,
+    Battery_ID INT,
+    Maintenance_Date DATE,
+    Details TEXT
+);"
+government_04,"public_transport : Transport_ID (INT), Route (TEXT), Schedule (TEXT), Capacity (INT) | stops : Stop_ID (INT), Transport_ID (INT), Location (TEXT), Arrival_Time (TIME) | tickets : Ticket_ID (INT), Transport_ID (INT), Customer_ID (INT), Purchase_Date (DATE), Price (DECIMAL) | maintenance : Maintenance_ID (INT), Transport_ID (INT), Maintenance_Date (DATE), Details (TEXT)","CREATE TABLE public_transport (
+    Transport_ID INT,
+    Route TEXT,
+    Schedule TEXT,
+    Capacity INT
+); CREATE TABLE stops (
+    Stop_ID INT,
+    Transport_ID INT,
+    Location TEXT,
+    Arrival_Time TIME
+); CREATE TABLE tickets (
+    Ticket_ID INT,
+    Transport_ID INT,
+    Customer_ID INT,
+    Purchase_Date DATE,
+    Price DECIMAL
+); CREATE TABLE maintenance (
+    Maintenance_ID INT,
+    Transport_ID INT,
+    Maintenance_Date DATE,
+    Details TEXT
+);"
+legal_04,"legal_firms : Firm_ID (INT), Name (TEXT), Address (TEXT), Contact_Info (TEXT) | attorneys : Attorney_ID (INT), Firm_ID (INT), Name (TEXT), Specialization (TEXT) | cases : Case_ID (INT), Attorney_ID (INT), Client_ID (INT), Case_Type (TEXT), Status (TEXT) | clients : Client_ID (INT), Name (TEXT), Contact_Info (TEXT)","CREATE TABLE legal_firms (
+    Firm_ID INT,
+    Name TEXT,
+    Address TEXT,
+    Contact_Info TEXT
+); CREATE TABLE attorneys (
+    Attorney_ID INT,
+    Firm_ID INT,
+    Name TEXT,
+    Specialization TEXT
+); CREATE TABLE cases (
+    Case_ID INT,
+    Attorney_ID INT,
+    Client_ID INT,
+    Case_Type TEXT,
+    Status TEXT
+); CREATE TABLE clients (
+    Client_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+);"
+marketing_04,"ads : Ad_ID (INT), Campaign_ID (INT), Platform (TEXT), Content (TEXT), Spend (DECIMAL) | campaigns : Campaign_ID (INT), Name (TEXT), Start_Date (DATE), End_Date (DATE), Budget (DECIMAL) | analytics : Analytics_ID (INT), Ad_ID (INT), Impressions (INT), Clicks (INT), Conversions (INT) | budgets : Budget_ID (INT), Campaign_ID (INT), Allocated_Amount (DECIMAL), Spent_Amount (DECIMAL)","CREATE TABLE ads (
+    Ad_ID INT,
+    Campaign_ID INT,
+    Platform TEXT,
+    Content TEXT,
+    Spend DECIMAL
+); CREATE TABLE campaigns (
+    Campaign_ID INT,
+    Name TEXT,
+    Start_Date DATE,
+    End_Date DATE,
+    Budget DECIMAL
+); CREATE TABLE analytics (
+    Analytics_ID INT,
+    Ad_ID INT,
+    Impressions INT,
+    Clicks INT,
+    Conversions INT
+); CREATE TABLE budgets (
+    Budget_ID INT,
+    Campaign_ID INT,
+    Allocated_Amount DECIMAL,
+    Spent_Amount DECIMAL
+);"
+nonprofit_04,"missions : Mission_ID (INT), Name (TEXT), Description (TEXT), Start_Date (DATE), End_Date (DATE) | volunteers : Volunteer_ID (INT), Mission_ID (INT), Name (TEXT), Role (TEXT) | donations : Donation_ID (INT), Mission_ID (INT), Donor_ID (INT), Amount (DECIMAL), Donation_Date (DATE) | donors : Donor_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT)","CREATE TABLE missions (
+    Mission_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Start_Date DATE,
+    End_Date DATE
+); CREATE TABLE volunteers (
+    Volunteer_ID INT,
+    Mission_ID INT,
+    Name TEXT,
+    Role TEXT
+); CREATE TABLE donations (
+    Donation_ID INT,
+    Mission_ID INT,
+    Donor_ID INT,
+    Amount DECIMAL,
+    Donation_Date DATE
+); CREATE TABLE donors (
+    Donor_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+);"
+retail_04,"loyalty_programs : Program_ID (INT), Name (TEXT), Description (TEXT), Points_Earned_Per_Dollar (DECIMAL) | members : Member_ID (INT), Program_ID (INT), Name (TEXT), Email (TEXT), Points (INT) | rewards : Reward_ID (INT), Program_ID (INT), Description (TEXT), Points_Cost (INT) | redemptions : Redemption_ID (INT), Member_ID (INT), Reward_ID (INT), Redemption_Date (DATE)","CREATE TABLE loyalty_programs (
+    Program_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Points_Earned_Per_Dollar DECIMAL
+); CREATE TABLE members (
+    Member_ID INT,
+    Program_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Points INT
+); CREATE TABLE rewards (
+    Reward_ID INT,
+    Program_ID INT,
+    Description TEXT,
+    Points_Cost INT
+); CREATE TABLE redemptions (
+    Redemption_ID INT,
+    Member_ID INT,
+    Reward_ID INT,
+    Redemption_Date DATE
+);"
+technology_04,"servers : Server_ID (INT), IP_Address (TEXT), Location (TEXT), Status (TEXT) | databases : Database_ID (INT), Server_ID (INT), Name (TEXT), Size_GB (DECIMAL) | users : User_ID (INT), Database_ID (INT), Username (TEXT), Password (TEXT), Access_Level (TEXT) | logs : Log_ID (INT), Database_ID (INT), Timestamp (DATETIME), Event (TEXT)","CREATE TABLE servers (
+    Server_ID INT,
+    IP_Address TEXT,
+    Location TEXT,
+    Status TEXT
+); CREATE TABLE databases (
+    Database_ID INT,
+    Server_ID INT,
+    Name TEXT,
+    Size_GB DECIMAL
+); CREATE TABLE users (
+    User_ID INT,
+    Database_ID INT,
+    Username TEXT,
+    Password TEXT,
+    Access_Level TEXT
+); CREATE TABLE logs (
+    Log_ID INT,
+    Database_ID INT,
+    Timestamp DATETIME,
+    Event TEXT
+);"
+ecommerce_04,"wishlists : Wishlist_ID (INT), Customer_ID (INT), Name (TEXT), Created_Date (DATE) | wishlist_items : Item_ID (INT), Wishlist_ID (INT), Product_ID (INT), Priority (INT) | shares : Share_ID (INT), Wishlist_ID (INT), Shared_With (INT), Share_Date (DATE) | notifications : Notification_ID (INT), Customer_ID (INT), Message (TEXT), Sent_Date (DATE)","CREATE TABLE wishlists (
+    Wishlist_ID INT,
+    Customer_ID INT,
+    Name TEXT,
+    Created_Date DATE
+); CREATE TABLE wishlist_items (
+    Item_ID INT,
+    Wishlist_ID INT,
+    Product_ID INT,
+    Priority INT
+); CREATE TABLE shares (
+    Share_ID INT,
+    Wishlist_ID INT,
+    Shared_With INT,
+    Share_Date DATE
+); CREATE TABLE notifications (
+    Notification_ID INT,
+    Customer_ID INT,
+    Message TEXT,
+    Sent_Date DATE
+);"
+healthcare_04,"labs : Lab_ID (INT), Name (TEXT), Location (TEXT), Contact_Info (TEXT) | tests : Test_ID (INT), Lab_ID (INT), Name (TEXT), Description (TEXT), Price (DECIMAL) | test_orders : Order_ID (INT), Patient_ID (INT), Test_ID (INT), Order_Date (DATE), Result (TEXT) | results : Result_ID (INT), Order_ID (INT), Test_ID (INT), Result_Value (TEXT), Report_Date (DATE)","CREATE TABLE labs (
+    Lab_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Contact_Info TEXT
+); CREATE TABLE tests (
+    Test_ID INT,
+    Lab_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Price DECIMAL
+); CREATE TABLE test_orders (
+    Order_ID INT,
+    Patient_ID INT,
+    Test_ID INT,
+    Order_Date DATE,
+    Result TEXT
+); CREATE TABLE results (
+    Result_ID INT,
+    Order_ID INT,
+    Test_ID INT,
+    Result_Value TEXT,
+    Report_Date DATE
+);"
+education_04,"alumni : Alumni_ID (INT), Name (TEXT), Graduation_Year (INT), Email (TEXT) | events : Event_ID (INT), Name (TEXT), Date (DATE), Location (TEXT), Organizer_ID (INT) | registrations : Registration_ID (INT), Event_ID (INT), Alumni_ID (INT), Registration_Date (DATE) | feedback : Feedback_ID (INT), Event_ID (INT), Alumni_ID (INT), Rating (INT), Comments (TEXT)","CREATE TABLE alumni (
+    Alumni_ID INT,
+    Name TEXT,
+    Graduation_Year INT,
+    Email TEXT
+); CREATE TABLE events (
+    Event_ID INT,
+    Name TEXT,
+    Date DATE,
+    Location TEXT,
+    Organizer_ID INT
+); CREATE TABLE registrations (
+    Registration_ID INT,
+    Event_ID INT,
+    Alumni_ID INT,
+    Registration_Date DATE
+); CREATE TABLE feedback (
+    Feedback_ID INT,
+    Event_ID INT,
+    Alumni_ID INT,
+    Rating INT,
+    Comments TEXT
+);"
+finance_04,"investment_accounts : Investment_ID (INT), Customer_ID (INT), Account_Type (TEXT), Balance (DECIMAL) | investments : Investment_Record_ID (INT), Investment_ID (INT), Asset_Type (TEXT), Amount (DECIMAL), Purchase_Date (DATE) | dividends : Dividend_ID (INT), Investment_Record_ID (INT), Amount (DECIMAL), Payment_Date (DATE) | portfolio : Portfolio_ID (INT), Customer_ID (INT), Total_Value (DECIMAL), Last_Updated (DATE)","CREATE TABLE investment_accounts (
+    Investment_ID INT,
+    Customer_ID INT,
+    Account_Type TEXT,
+    Balance DECIMAL
+); CREATE TABLE investments (
+    Investment_Record_ID INT,
+    Investment_ID INT,
+    Asset_Type TEXT,
+    Amount DECIMAL,
+    Purchase_Date DATE
+); CREATE TABLE dividends (
+    Dividend_ID INT,
+    Investment_Record_ID INT,
+    Amount DECIMAL,
+    Payment_Date DATE
+); CREATE TABLE portfolio (
+    Portfolio_ID INT,
+    Customer_ID INT,
+    Total_Value DECIMAL,
+    Last_Updated DATE
+);"
+travel_04,"destinations : Destination_ID (INT), Name (TEXT), Country (TEXT), Description (TEXT) | attractions : Attraction_ID (INT), Destination_ID (INT), Name (TEXT), Type (TEXT), Entry_Fee (DECIMAL) | tours : Tour_ID (INT), Destination_ID (INT), Name (TEXT), Duration_Days (INT), Price (DECIMAL) | reviews : Review_ID (INT), Tour_ID (INT), Customer_ID (INT), Rating (INT), Comment (TEXT)","CREATE TABLE destinations (
+    Destination_ID INT,
+    Name TEXT,
+    Country TEXT,
+    Description TEXT
+); CREATE TABLE attractions (
+    Attraction_ID INT,
+    Destination_ID INT,
+    Name TEXT,
+    Type TEXT,
+    Entry_Fee DECIMAL
+); CREATE TABLE tours (
+    Tour_ID INT,
+    Destination_ID INT,
+    Name TEXT,
+    Duration_Days INT,
+    Price DECIMAL
+); CREATE TABLE reviews (
+    Review_ID INT,
+    Tour_ID INT,
+    Customer_ID INT,
+    Rating INT,
+    Comment TEXT
+);"
+real_estate_04,"mortgages : Mortgage_ID (INT), Property_ID (INT), Lender_ID (INT), Amount (DECIMAL), Interest_Rate (DECIMAL), Start_Date (DATE), End_Date (DATE) | lenders : Lender_ID (INT), Name (TEXT), Contact_Info (TEXT) | payments : Payment_ID (INT), Mortgage_ID (INT), Amount (DECIMAL), Payment_Date (DATE) | amortization : Amortization_ID (INT), Mortgage_ID (INT), Payment_Number (INT), Principal (DECIMAL), Interest (DECIMAL), Balance (DECIMAL)","CREATE TABLE mortgages (
+    Mortgage_ID INT,
+    Property_ID INT,
+    Lender_ID INT,
+    Amount DECIMAL,
+    Interest_Rate DECIMAL,
+    Start_Date DATE,
+    End_Date DATE
+); CREATE TABLE lenders (
+    Lender_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+); CREATE TABLE payments (
+    Payment_ID INT,
+    Mortgage_ID INT,
+    Amount DECIMAL,
+    Payment_Date DATE
+); CREATE TABLE amortization (
+    Amortization_ID INT,
+    Mortgage_ID INT,
+    Payment_Number INT,
+    Principal DECIMAL,
+    Interest DECIMAL,
+    Balance DECIMAL
+);"
+manufacturing_04,"raw_materials : Material_ID (INT), Name (TEXT), Supplier_ID (INT), Cost_Per_Unit (DECIMAL), Stock (INT) | suppliers : Supplier_ID (INT), Name (TEXT), Contact_Info (TEXT), Location (TEXT) | bills_of_materials : BOM_ID (INT), Product_ID (INT), Material_ID (INT), Quantity (INT) | production_orders : Order_ID (INT), Packaging_ID (INT), Quantity (INT), Order_Date (DATE), Status (TEXT)","CREATE TABLE raw_materials (
+    Material_ID INT,
+    Name TEXT,
+    Supplier_ID INT,
+    Cost_Per_Unit DECIMAL,
+    Stock INT
+); CREATE TABLE suppliers (
+    Supplier_ID INT,
+    Name TEXT,
+    Contact_Info TEXT,
+    Location TEXT
+); CREATE TABLE bills_of_materials (
+    BOM_ID INT,
+    Product_ID INT,
+    Material_ID INT,
+    Quantity INT
+); CREATE TABLE production_orders (
+    Order_ID INT,
+    Packaging_ID INT,
+    Quantity INT,
+    Order_Date DATE,
+    Status TEXT
+);"
+media_04,"radio_shows : Show_ID (INT), Name (TEXT), Host (TEXT), Schedule (TEXT), Station_ID (INT) | stations : Station_ID (INT), Name (TEXT), Frequency (TEXT), Location (TEXT) | sponsors : Sponsor_ID (INT), Name (TEXT), Industry (TEXT), Contact_Info (TEXT) | advertisements : Ad_ID (INT), Show_ID (INT), Sponsor_ID (INT), Content (TEXT), Air_Time (DATETIME)","CREATE TABLE radio_shows (
+    Show_ID INT,
+    Name TEXT,
+    Host TEXT,
+    Schedule TEXT,
+    Station_ID INT
+); CREATE TABLE stations (
+    Station_ID INT,
+    Name TEXT,
+    Frequency TEXT,
+    Location TEXT
+); CREATE TABLE sponsors (
+    Sponsor_ID INT,
+    Name TEXT,
+    Industry TEXT,
+    Contact_Info TEXT
+); CREATE TABLE advertisements (
+    Ad_ID INT,
+    Show_ID INT,
+    Sponsor_ID INT,
+    Content TEXT,
+    Air_Time DATETIME
+);"
+logistics_04,"fleet : Fleet_ID (INT), Vehicle_ID (INT), Maintenance_Date (DATE), Status (TEXT) | routes : Route_ID (INT), Origin (TEXT), Destination (TEXT), Distance (DECIMAL), Estimated_Time (TIME) | deliveries : Delivery_ID (INT), Route_ID (INT), Vehicle_ID (INT), Departure_Time (DATETIME), Arrival_Time (DATETIME) | drivers : Driver_ID (INT), Name (TEXT), License_Number (TEXT), Contact_Info (TEXT)","CREATE TABLE fleet (
+    Fleet_ID INT,
+    Vehicle_ID INT,
+    Maintenance_Date DATE,
+    Status TEXT
+); CREATE TABLE routes (
+    Route_ID INT,
+    Origin TEXT,
+    Destination TEXT,
+    Distance DECIMAL,
+    Estimated_Time TIME
+); CREATE TABLE deliveries (
+    Delivery_ID INT,
+    Route_ID INT,
+    Vehicle_ID INT,
+    Departure_Time DATETIME,
+    Arrival_Time DATETIME
+); CREATE TABLE drivers (
+    Driver_ID INT,
+    Name TEXT,
+    License_Number TEXT,
+    Contact_Info TEXT
+);"
+hospitality_04,"catering_services : Service_ID (INT), Name (TEXT), Menu (TEXT), Price (DECIMAL), Availability (TEXT) | events : Event_ID (INT), Name (TEXT), Date (DATE), Location (TEXT), Catering_Service_ID (INT) | vendors : Vendor_ID (INT), Name (TEXT), Type (TEXT), Contact_Info (TEXT) | supplies : Supply_ID (INT), Vendor_ID (INT), Event_ID (INT), Item_Name (TEXT), Quantity (INT)","CREATE TABLE catering_services (
+    Service_ID INT,
+    Name TEXT,
+    Menu TEXT,
+    Price DECIMAL,
+    Availability TEXT
+); CREATE TABLE events (
+    Event_ID INT,
+    Name TEXT,
+    Date DATE,
+    Location TEXT,
+    Catering_Service_ID INT
+); CREATE TABLE vendors (
+    Vendor_ID INT,
+    Name TEXT,
+    Type TEXT,
+    Contact_Info TEXT
+); CREATE TABLE supplies (
+    Supply_ID INT,
+    Vendor_ID INT,
+    Event_ID INT,
+    Item_Name TEXT,
+    Quantity INT
+);"
+sports_04,"facilities : Facility_ID (INT), Name (TEXT), Location (TEXT), Type (TEXT), Capacity (INT) | bookings : Booking_ID (INT), Facility_ID (INT), Team_ID (INT), Booking_Date (DATE), Start_Time (TIME), End_Time (TIME) | equipment : Equipment_ID (INT), Facility_ID (INT), Name (TEXT), Quantity (INT), Condition (TEXT) | maintenance : Maintenance_ID (INT), Equipment_ID (INT), Maintenance_Date (DATE), Details (TEXT)","CREATE TABLE facilities (
+    Facility_ID INT,
+    Name TEXT,
+    Location TEXT,
+    Type TEXT,
+    Capacity INT
+); CREATE TABLE bookings (
+    Booking_ID INT,
+    Facility_ID INT,
+    Team_ID INT,
+    Booking_Date DATE,
+    Start_Time TIME,
+    End_Time TIME
+); CREATE TABLE equipment (
+    Equipment_ID INT,
+    Facility_ID INT,
+    Name TEXT,
+    Quantity INT,
+    Condition TEXT
+); CREATE TABLE maintenance (
+    Maintenance_ID INT,
+    Equipment_ID INT,
+    Maintenance_Date DATE,
+    Details TEXT
+);"
+agriculture_05,"harvests : Harvest_ID (INT), Crop_ID (INT), Farm_ID (INT), Harvest_Date (DATE), Quantity (DECIMAL) | sales : Sale_ID (INT), Harvest_ID (INT), Buyer_ID (INT), Quantity (DECIMAL), Sale_Date (DATE) | buyers : Buyer_ID (INT), Name (TEXT), Contact_Info (TEXT), Location (TEXT) | transport : Transport_ID (INT), Sale_ID (INT), Vehicle_ID (INT), Departure_Date (DATE), Arrival_Date (DATE)","CREATE TABLE harvests (
+    Harvest_ID INT,
+    Crop_ID INT,
+    Farm_ID INT,
+    Harvest_Date DATE,
+    Quantity DECIMAL
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Harvest_ID INT,
+    Buyer_ID INT,
+    Quantity DECIMAL,
+    Sale_Date DATE
+); CREATE TABLE buyers (
+    Buyer_ID INT,
+    Name TEXT,
+    Contact_Info TEXT,
+    Location TEXT
+); CREATE TABLE transport (
+    Transport_ID INT,
+    Sale_ID INT,
+    Vehicle_ID INT,
+    Departure_Date DATE,
+    Arrival_Date DATE
+);"
+automotive_05,"manufacturers : Manufacturer_ID (INT), Name (TEXT), Country (TEXT), Contact_Info (TEXT) | models : Model_ID (INT), Manufacturer_ID (INT), Name (TEXT), Year (INT), Price (DECIMAL) | features : Feature_ID (INT), Model_ID (INT), Description (TEXT), Additional_Cost (DECIMAL) | reviews : Review_ID (INT), Model_ID (INT), Customer_ID (INT), Rating (INT), Comment (TEXT)","CREATE TABLE manufacturers (
+    Manufacturer_ID INT,
+    Name TEXT,
+    Country TEXT,
+    Contact_Info TEXT
+); CREATE TABLE models (
+    Model_ID INT,
+    Manufacturer_ID INT,
+    Name TEXT,
+    Year INT,
+    Price DECIMAL
+); CREATE TABLE features (
+    Feature_ID INT,
+    Model_ID INT,
+    Description TEXT,
+    Additional_Cost DECIMAL
+); CREATE TABLE reviews (
+    Review_ID INT,
+    Model_ID INT,
+    Customer_ID INT,
+    Rating INT,
+    Comment TEXT
+);"
+entertainment_05,"games : Game_ID (INT), Title (TEXT), Genre (TEXT), Release_Date (DATE), Developer_ID (INT) | developers : Developer_ID (INT), Name (TEXT), Contact_Info (TEXT) | platforms : Platform_ID (INT), Name (TEXT), Manufacturer (TEXT) | sales : Sale_ID (INT), Game_ID (INT), Platform_ID (INT), Sale_Date (DATE), Units_Sold (INT)","CREATE TABLE games (
+    Game_ID INT,
+    Title TEXT,
+    Genre TEXT,
+    Release_Date DATE,
+    Developer_ID INT
+); CREATE TABLE developers (
+    Developer_ID INT,
+    Name TEXT,
+    Contact_Info TEXT
+); CREATE TABLE platforms (
+    Platform_ID INT,
+    Name TEXT,
+    Manufacturer TEXT
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Game_ID INT,
+    Platform_ID INT,
+    Sale_Date DATE,
+    Units_Sold INT
+);"
+energy_05,"fuel_types : Fuel_ID (INT), Name (TEXT), Energy_Content (DECIMAL), Price_per_Liter (DECIMAL) | fuel_stations : Station_ID (INT), Location (TEXT), Fuel_ID (INT), Capacity (DECIMAL) | sales : Sale_ID (INT), Station_ID (INT), Fuel_ID (INT), Sale_Date (DATE), Quantity_Liters (DECIMAL) | deliveries : Delivery_ID (INT), Fuel_ID (INT), Supplier_ID (INT), Delivery_Date (DATE), Quantity_Liters (DECIMAL)","CREATE TABLE fuel_types (
+    Fuel_ID INT,
+    Name TEXT,
+    Energy_Content DECIMAL,
+    Price_per_Liter DECIMAL
+); CREATE TABLE fuel_stations (
+    Station_ID INT,
+    Location TEXT,
+    Fuel_ID INT,
+    Capacity DECIMAL
+); CREATE TABLE sales (
+    Sale_ID INT,
+    Station_ID INT,
+    Fuel_ID INT,
+    Sale_Date DATE,
+    Quantity_Liters DECIMAL
+); CREATE TABLE deliveries (
+    Delivery_ID INT,
+    Fuel_ID INT,
+    Supplier_ID INT,
+    Delivery_Date DATE,
+    Quantity_Liters DECIMAL
+);"
+government_05,"public_grants : Grant_ID (INT), Title (TEXT), Amount (DECIMAL), Department_ID (INT), Award_Date (DATE) | applicants : Applicant_ID (INT), Grant_ID (INT), Name (TEXT), Contact_Info (TEXT), Application_Date (DATE) | grant_reviews : Review_ID (INT), Grant_ID (INT), Reviewer_ID (INT), Score (INT), Comments (TEXT) | reviewers : Reviewer_ID (INT), Name (TEXT), Department (TEXT), Contact_Info (TEXT)","CREATE TABLE public_grants (
+    Grant_ID INT,
+    Title TEXT,
+    Amount DECIMAL,
+    Department_ID INT,
+    Award_Date DATE
+); CREATE TABLE applicants (
+    Applicant_ID INT,
+    Grant_ID INT,
+    Name TEXT,
+    Contact_Info TEXT,
+    Application_Date DATE
+); CREATE TABLE grant_reviews (
+    Review_ID INT,
+    Grant_ID INT,
+    Reviewer_ID INT,
+    Score INT,
+    Comments TEXT
+); CREATE TABLE reviewers (
+    Reviewer_ID INT,
+    Name TEXT,
+    Department TEXT,
+    Contact_Info TEXT
+);"
+legal_05,"laws : Law_ID (INT), Title (TEXT), Description (TEXT), Enactment_Date (DATE) | regulations : Regulation_ID (INT), Law_ID (INT), Description (TEXT), Effective_Date (DATE) | compliance_checks : Check_ID (INT), Regulation_ID (INT), Entity_ID (INT), Check_Date (DATE), Status (TEXT) | entities : Entity_ID (INT), Name (TEXT), Type (TEXT), Contact_Info (TEXT)","CREATE TABLE laws (
+    Law_ID INT,
+    Title TEXT,
+    Description TEXT,
+    Enactment_Date DATE
+); CREATE TABLE regulations (
+    Regulation_ID INT,
+    Law_ID INT,
+    Description TEXT,
+    Effective_Date DATE
+); CREATE TABLE compliance_checks (
+    Check_ID INT,
+    Regulation_ID INT,
+    Entity_ID INT,
+    Check_Date DATE,
+    Status TEXT
+); CREATE TABLE entities (
+    Entity_ID INT,
+    Name TEXT,
+    Type TEXT,
+    Contact_Info TEXT
+);"
+marketing_05,"influencers : Influencer_ID (INT), Name (TEXT), Platform (TEXT), Followers (INT) | partnerships : Partnership_ID (INT), Influencer_ID (INT), Brand_ID (INT), Start_Date (DATE), End_Date (DATE) | brands : Brand_ID (INT), Name (TEXT), Industry (TEXT), Contact_Info (TEXT) | campaigns : Campaign_ID (INT), Partnership_ID (INT), Name (TEXT), Start_Date (DATE), End_Date (DATE)","CREATE TABLE influencers (
+    Influencer_ID INT,
+    Name TEXT,
+    Platform TEXT,
+    Followers INT
+); CREATE TABLE partnerships (
+    Partnership_ID INT,
+    Influencer_ID INT,
+    Brand_ID INT,
+    Start_Date DATE,
+    End_Date DATE
+); CREATE TABLE brands (
+    Brand_ID INT,
+    Name TEXT,
+    Industry TEXT,
+    Contact_Info TEXT
+); CREATE TABLE campaigns (
+    Campaign_ID INT,
+    Partnership_ID INT,
+    Name TEXT,
+    Start_Date DATE,
+    End_Date DATE
+);"
+nonprofit_05,"awards : Award_ID (INT), Name (TEXT), Description (TEXT), Award_Date (DATE) | nominees : Nominee_ID (INT), Award_ID (INT), Name (TEXT), Category (TEXT) | voting : Vote_ID (INT), Award_ID (INT), Nominee_ID (INT), Voter_ID (INT), Vote_Date (DATE) | voters : Voter_ID (INT), Name (TEXT), Email (TEXT), Phone (TEXT)","CREATE TABLE awards (
+    Award_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Award_Date DATE
+); CREATE TABLE nominees (
+    Nominee_ID INT,
+    Award_ID INT,
+    Name TEXT,
+    Category TEXT
+); CREATE TABLE voting (
+    Vote_ID INT,
+    Award_ID INT,
+    Nominee_ID INT,
+    Voter_ID INT,
+    Vote_Date DATE
+); CREATE TABLE voters (
+    Voter_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Phone TEXT
+);"
+retail_05,"suppliers : Supplier_ID (INT), Name (TEXT), Contact_Info (TEXT), Location (TEXT) | purchase_orders : PO_ID (INT), Supplier_ID (INT), Order_Date (DATE), Status (TEXT) | order_items : Order_Item_ID (INT), PO_ID (INT), Product_ID (INT), Quantity (INT), Price (DECIMAL) | receipts : Receipt_ID (INT), PO_ID (INT), Receipt_Date (DATE), Total_Amount (DECIMAL)","CREATE TABLE suppliers (
+    Supplier_ID INT,
+    Name TEXT,
+    Contact_Info TEXT,
+    Location TEXT
+); CREATE TABLE purchase_orders (
+    PO_ID INT,
+    Supplier_ID INT,
+    Order_Date DATE,
+    Status TEXT
+); CREATE TABLE order_items (
+    Order_Item_ID INT,
+    PO_ID INT,
+    Product_ID INT,
+    Quantity INT,
+    Price DECIMAL
+); CREATE TABLE receipts (
+    Receipt_ID INT,
+    PO_ID INT,
+    Receipt_Date DATE,
+    Total_Amount DECIMAL
+);"
+technology_05,"api_endpoints : Endpoint_ID (INT), Name (TEXT), URL (TEXT), Method (TEXT), Documentation (TEXT) | api_keys : Key_ID (INT), User_ID (INT), Endpoint_ID (INT), Key_Value (TEXT), Expiry_Date (DATE) | usage_logs : Log_ID (INT), Key_ID (INT), Endpoint_ID (INT), Timestamp (DATETIME), Response_Code (INT) | users : User_ID (INT), Name (TEXT), Email (TEXT), Role (TEXT)","CREATE TABLE api_endpoints (
+    Endpoint_ID INT,
+    Name TEXT,
+    URL TEXT,
+    Method TEXT,
+    Documentation TEXT
+); CREATE TABLE api_keys (
+    Key_ID INT,
+    User_ID INT,
+    Endpoint_ID INT,
+    Key_Value TEXT,
+    Expiry_Date DATE
+); CREATE TABLE usage_logs (
+    Log_ID INT,
+    Key_ID INT,
+    Endpoint_ID INT,
+    Timestamp DATETIME,
+    Response_Code INT
+); CREATE TABLE users (
+    User_ID INT,
+    Name TEXT,
+    Email TEXT,
+    Role TEXT
+);"
+ecommerce_05,"discounts : Discount_ID (INT), Code (TEXT), Percentage (DECIMAL), Start_Date (DATE), End_Date (DATE) | applied_discounts : Applied_Discount_ID (INT), Discount_ID (INT), Order_ID (INT), Discount_Amount (DECIMAL) | returns : Return_ID (INT), Order_ID (INT), Product_ID (INT), Return_Date (DATE), Reason (TEXT) | refunds : Refund_ID (INT), Return_ID (INT), Amount (DECIMAL), Refund_Date (DATE)","CREATE TABLE discounts (
+    Discount_ID INT,
+    Code TEXT,
+    Percentage DECIMAL,
+    Start_Date DATE,
+    End_Date DATE
+); CREATE TABLE applied_discounts (
+    Applied_Discount_ID INT,
+    Discount_ID INT,
+    Order_ID INT,
+    Discount_Amount DECIMAL
+); CREATE TABLE returns (
+    Return_ID INT,
+    Order_ID INT,
+    Product_ID INT,
+    Return_Date DATE,
+    Reason TEXT
+); CREATE TABLE refunds (
+    Refund_ID INT,
+    Return_ID INT,
+    Amount DECIMAL,
+    Refund_Date DATE
+);"
+healthcare_05,"procedures : Procedure_ID (INT), Name (TEXT), Description (TEXT), Cost (DECIMAL) | procedure_records : Record_ID (INT), Patient_ID (INT), Procedure_ID (INT), Date (DATE), Outcome (TEXT) | billing : Billing_ID (INT), Patient_ID (INT), Procedure_ID (INT), Amount (DECIMAL), Billing_Date (DATE) | payments : Payment_ID (INT), Billing_ID (INT), Amount (DECIMAL), Payment_Date (DATE)","CREATE TABLE procedures (
+    Procedure_ID INT,
+    Name TEXT,
+    Description TEXT,
+    Cost DECIMAL
+); CREATE TABLE procedure_records (
+    Record_ID INT,
+    Patient_ID INT,
+    Procedure_ID INT,
+    Date DATE,
+    Outcome TEXT
+); CREATE TABLE billing (
+    Billing_ID INT,
+    Patient_ID INT,
+    Procedure_ID INT,
+    Amount DECIMAL,
+    Billing_Date DATE
+); CREATE TABLE payments (
+    Payment_ID INT,
+    Billing_ID INT,
+    Amount DECIMAL,
+    Payment_Date DATE
+);"
+education_05,"scholarships : Scholarship_ID (INT), Name (TEXT), Amount (DECIMAL), Eligibility (TEXT), Deadline (DATE) | applications : Application_ID (INT), Scholarship_ID (INT), Student_ID (INT), Application_Date (DATE), Status (TEXT) | awards : Award_ID (INT), Scholarship_ID (INT), Recipient_ID (INT), Award_Date (DATE), Amount (DECIMAL) | renewals : Renewal_ID (INT), Scholarship_ID (INT), Recipient_ID (INT), Renewal_Date (DATE), Status (TEXT)","CREATE TABLE scholarships (
+    Scholarship_ID INT,
+    Name TEXT,
+    Amount DECIMAL,
+    Eligibility TEXT,
+    Deadline DATE
+); CREATE TABLE applications (
+    Application_ID INT,
+    Scholarship_ID INT,
+    Student_ID INT,
+    Application_Date DATE,
+    Status TEXT
+); CREATE TABLE awards (
+    Award_ID INT,
+    Scholarship_ID INT,
+    Recipient_ID INT,
+    Award_Date DATE,
+    Amount DECIMAL
+); CREATE TABLE renewals (
+    Renewal_ID INT,
+    Scholarship_ID INT,
+    Recipient_ID INT,
+    Renewal_Date DATE,
+    Status TEXT
+);"
+finance_05,"tax_returns : Return_ID (INT), Customer_ID (INT), Year (INT), Amount (DECIMAL), Filing_Date (DATE) | deductions : Deduction_ID (INT), Return_ID (INT), Description (TEXT), Amount (DECIMAL) | tax_brackets : Bracket_ID (INT), Year (INT), Min_Income (DECIMAL), Max_Income (DECIMAL), Rate (DECIMAL) | refunds : Refund_ID (INT), Return_ID (INT), Amount (DECIMAL), Refund_Date (DATE)","CREATE TABLE tax_returns (
+    Return_ID INT,
+    Customer_ID INT,
+    Year INT,
+    Amount DECIMAL,
+    Filing_Date DATE
+); CREATE TABLE deductions (
+    Deduction_ID INT,
+    Return_ID INT,
+    Description TEXT,
+    Amount DECIMAL
+); CREATE TABLE tax_brackets (
+    Bracket_ID INT,
+    Year INT,
+    Min_Income DECIMAL,
+    Max_Income DECIMAL,
+    Rate DECIMAL
+); CREATE TABLE refunds (
+    Refund_ID INT,
+    Return_ID INT,
+    Amount DECIMAL,
+    Refund_Date DATE
+);"
+travel_05,"visa_applications : Application_ID (INT), Customer_ID (INT), Country (TEXT), Application_Date (DATE), Status (TEXT) | visa_types : Visa_Type_ID (INT), Country (TEXT), Type (TEXT), Requirements (TEXT) | approvals : Approval_ID (INT), Application_ID (INT), Approved_By (INT), Approval_Date (DATE), Expiry_Date (DATE) | rejections : Rejection_ID (INT), Application_ID (INT), Rejected_By (INT), Rejection_Date (DATE), Reason (TEXT)","CREATE TABLE visa_applications (
+    Application_ID INT,
+    Customer_ID INT,
+    Country TEXT,
+    Application_Date DATE,
+    Status TEXT
+); CREATE TABLE visa_types (
+    Visa_Type_ID INT,
+    Country TEXT,
+    Type TEXT,
+    Requirements TEXT
+); CREATE TABLE approvals (
+    Approval_ID INT,
+    Application_ID INT,
+    Approved_By INT,
+    Approval_Date DATE,
+    Expiry_Date DATE
+); CREATE TABLE rejections (
+    Rejection_ID INT,
+    Application_ID INT,
+    Rejected_By INT,
+    Rejection_Date DATE,
+    Reason TEXT
+);"
+real_estate_05,"property_inspections : Inspection_ID (INT), Property_ID (INT), Inspector_ID (INT), Inspection_Date (DATE), Findings (TEXT) | inspectors : Inspector_ID (INT), Name (TEXT), Certification (TEXT), Contact_Info (TEXT) | inspection_reports : Report_ID (INT), Inspection_ID (INT), Summary (TEXT), Recommendations (TEXT) | compliance : Compliance_ID (INT), Property_ID (INT), Status (TEXT), Last_Checked (DATE)","CREATE TABLE property_inspections (
+    Inspection_ID INT,
+    Property_ID INT,
+    Inspector_ID INT,
+    Inspection_Date DATE,
+    Findings TEXT
+); CREATE TABLE inspectors (
+    Inspector_ID INT,
+    Name TEXT,
+    Certification TEXT,
+    Contact_Info TEXT
+); CREATE TABLE inspection_reports (
+    Report_ID INT,
+    Inspection_ID INT,
+    Summary TEXT,
+    Recommendations TEXT
+); CREATE TABLE compliance (
+    Compliance_ID INT,
+    Property_ID INT,
+    Status TEXT,
+    Last_Checked DATE
+);"
