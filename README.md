@@ -1,4 +1,4 @@
-# Text2SQL-Project
+# Unmasking database vulnerabilities: Zero-Knowledge schema inference attacks in Text-to-SQL systems
 
 @article{klisura2024unmasking,
   title={Unmasking database vulnerabilities: Zero-Knowledge schema inference attacks in Text-to-SQL systems},
